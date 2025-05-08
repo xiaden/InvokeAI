@@ -9,7 +9,7 @@ import { Model } from './ModelPanel/Model';
 export const ModelPane = memo(() => {
   const selectedModelKey = useAppSelector(selectSelectedModelKey);
   return (
-    <Box layerStyle="first" p={4} borderRadius="base" w="50%" h="full">
+    <Box layerStyle="first" p={4} borderRadius="base" w="65%" h="full">
       {selectedModelKey ? <Model key={selectedModelKey} /> : <InstallModels />}
     </Box>
   );

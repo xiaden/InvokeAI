@@ -7,6 +7,7 @@ import { $didStudioInit } from 'app/hooks/useStudioInitAction';
 import type { PartialAppConfig } from 'app/types/invokeai';
 import Loading from 'common/components/Loading/Loading';
 import { useClearStorage } from 'common/hooks/useClearStorage';
+import MobileDashboard from 'features/mobile/MobileDashboard';
 import { AppContent } from 'features/ui/components/AppContent';
 import { memo, useCallback } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -20,6 +21,7 @@ interface Props {
 }
 
 const App = ({ config = DEFAULT_CONFIG, studioInitAction }: Props) => {
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   const didStudioInit = useStore($didStudioInit);
   const clearStorage = useClearStorage();
 
@@ -29,10 +31,12 @@ const App = ({ config = DEFAULT_CONFIG, studioInitAction }: Props) => {
     return false;
   }, [clearStorage]);
 
+  const AppRoot = isMobile ? MobileDashboard : AppContent;
+
   return (
     <ErrorBoundary onReset={handleReset} FallbackComponent={AppErrorBoundaryFallback}>
       <Box id="invoke-app-wrapper" w="100dvw" h="100dvh" position="relative" overflow="hidden">
-        <AppContent />
+        <AppRoot />
         {!didStudioInit && <Loading />}
       </Box>
       <GlobalHookIsolator config={config} studioInitAction={studioInitAction} />

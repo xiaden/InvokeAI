@@ -2,23 +2,40 @@ import type { ComboboxOnChange } from '@invoke-ai/ui-library';
 import { Combobox, FormControl, FormLabel } from '@invoke-ai/ui-library';
 import { useStore } from '@nanostores/react';
 import { $stylePresetModalState } from 'features/stylePresets/store/stylePresetModal';
-import { t } from 'i18next';
 import { useCallback, useMemo } from 'react';
-import type { UseControllerProps } from 'react-hook-form';
-import { useController } from 'react-hook-form';
+import { useController, type UseControllerProps } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import type { StylePresetFormData } from './StylePresetForm';
 
-const OPTIONS = [
-  { label: t('stylePresets.private'), value: 'user' },
-  { label: t('stylePresets.shared'), value: 'project' },
-];
+interface StylePresetTypeFieldProps extends UseControllerProps<StylePresetFormData, 'type'> {
+  restrictToModelAndBase?: boolean;
+}
 
-export const StylePresetTypeField = (props: UseControllerProps<StylePresetFormData, 'type'>) => {
+export const StylePresetTypeField = (props: StylePresetTypeFieldProps) => {
   const { field } = useController(props);
-  const stylePresetModalState = useStore($stylePresetModalState);
   const { t } = useTranslation();
+  const modalState = useStore($stylePresetModalState);
+
+  const restrictToModelAndBase = modalState.isCreatingFromModel;
+
+  const OPTIONS = useMemo(
+    () => [
+      { label: t('stylePresets.private'), value: 'user' },
+      { label: t('stylePresets.shared'), value: 'project' },
+    ],
+    [t]
+  );
+
+  const MAINBASE = useMemo(
+    () => [
+      { label: t('stylePresets.main'), value: 'model' },
+      { label: t('stylePresets.base'), value: 'base' },
+    ],
+    [t]
+  );
+
+  const SELECTEDOPTS = restrictToModelAndBase ? MAINBASE : OPTIONS;
 
   const onChange = useCallback<ComboboxOnChange>(
     (v) => {
@@ -30,17 +47,13 @@ export const StylePresetTypeField = (props: UseControllerProps<StylePresetFormDa
   );
 
   const value = useMemo(() => {
-    return OPTIONS.find((opt) => opt.value === field.value);
-  }, [field.value]);
+    return SELECTEDOPTS.find((opt) => opt.value === field.value);
+  }, [SELECTEDOPTS, field.value]);
 
   return (
-    <FormControl
-      orientation="vertical"
-      maxW={48}
-      isDisabled={stylePresetModalState.prefilledFormData?.type === 'project'}
-    >
+    <FormControl orientation="vertical" maxW={48} isDisabled={modalState.prefilledFormData?.type === 'project'}>
       <FormLabel>{t('stylePresets.type')}</FormLabel>
-      <Combobox value={value} options={OPTIONS} onChange={onChange} />
+      <Combobox value={value} options={SELECTEDOPTS} onChange={onChange} />
     </FormControl>
   );
 };

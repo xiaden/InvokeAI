@@ -10,6 +10,8 @@ import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { AnyModelConfig } from 'services/api/types';
 
+import { type SearchableModel, useModelSearch } from './useModelSearch';
+
 type UseGroupedModelComboboxArg<T extends AnyModelConfig> = {
   modelConfigs: T[];
   selectedModel?: ModelIdentifierField | null;
@@ -17,6 +19,7 @@ type UseGroupedModelComboboxArg<T extends AnyModelConfig> = {
   getIsDisabled?: (model: T) => boolean;
   isLoading?: boolean;
   groupByType?: boolean;
+  searchQuery?: string; // ✅ New
 };
 
 type UseGroupedModelComboboxReturn = {
@@ -39,18 +42,33 @@ export const useGroupedModelCombobox = <T extends AnyModelConfig>(
   const { t } = useTranslation();
   const base = useAppSelector(selectBaseWithSDXLFallback);
   const shouldShowModelDescriptions = useAppSelector(selectSystemShouldEnableModelDescriptions);
-  const { modelConfigs, selectedModel, getIsDisabled, onChange, isLoading, groupByType = false } = arg;
+  const {
+    modelConfigs,
+    selectedModel,
+    getIsDisabled,
+    onChange,
+    isLoading,
+    groupByType = false,
+    searchQuery = '',
+  } = arg;
+
+  const filteredModels = useModelSearch({
+    models: modelConfigs as SearchableModel[],
+    query: searchQuery,
+    disable: [],
+    sortByRelevance: false,
+  });
+
   const options = useMemo<GroupBase<ComboboxOption>[]>(() => {
-    if (!modelConfigs) {
-      return [];
-    }
-    const groupedModels = groupBy(modelConfigs, groupByType ? groupByBaseAndTypeFunc : groupByBaseFunc);
+    const groupedModels = groupBy(filteredModels, groupByType ? groupByBaseAndTypeFunc : groupByBaseFunc);
+
     const _options = reduce(
       groupedModels,
       (acc, val, label) => {
+        const models = val as T[];
         acc.push({
           label,
-          options: val.map((model) => ({
+          options: models.map((model) => ({
             label: model.name,
             value: model.key,
             description: (shouldShowModelDescriptions && model.description) || undefined,
@@ -61,9 +79,11 @@ export const useGroupedModelCombobox = <T extends AnyModelConfig>(
       },
       [] as GroupBase<ComboboxOption>[]
     );
+
     _options.sort((a) => (a.label?.split('/')[0]?.toLowerCase().includes(base) ? -1 : 1));
+
     return _options;
-  }, [modelConfigs, groupByType, getIsDisabled, base, shouldShowModelDescriptions]);
+  }, [filteredModels, groupByType, getIsDisabled, base, shouldShowModelDescriptions]);
 
   const value = useMemo(
     () =>

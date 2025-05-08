@@ -292,8 +292,14 @@ const modelsFilter = <T extends AnyModelConfig>(
   nameFilter: string,
   filteredModelType: FilterableModelType | null
 ): T[] => {
+  const lowerNameFilter = nameFilter.toLowerCase();
+
   return data.filter((model) => {
-    const matchesFilter = model.name.toLowerCase().includes(nameFilter.toLowerCase());
+    const matchesName = model.name.toLowerCase().includes(lowerNameFilter);
+
+    const matchesTags = model.model_tags?.some((tag) => tag.toLowerCase().includes(lowerNameFilter)) ?? false;
+
+    const matchesFilter = matchesName || matchesTags;
     const matchesType = getMatchesType(model, filteredModelType);
 
     return matchesFilter && matchesType;
