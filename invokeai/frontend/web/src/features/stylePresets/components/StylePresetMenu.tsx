@@ -2,7 +2,7 @@ import { Flex } from '@invoke-ai/ui-library';
 import { EMPTY_ARRAY } from 'app/store/constants';
 import { useAppSelector } from 'app/store/storeHooks';
 import { StylePresetExportButton } from 'features/stylePresets/components/StylePresetExportButton';
-import { StylePresetImportButton } from 'features/stylePresets/components/StylePresetImportButton';
+import { useGroupedModelPresets } from 'features/stylePresets/hooks/useGroupedModelPresets';
 import { selectStylePresetSearchTerm } from 'features/stylePresets/store/stylePresetSlice';
 import { selectAllowPrivateStylePresets } from 'features/system/store/configSlice';
 import { useTranslation } from 'react-i18next';
@@ -10,12 +10,15 @@ import type { StylePresetRecordWithImage } from 'services/api/endpoints/stylePre
 import { useListStylePresetsQuery } from 'services/api/endpoints/stylePresets';
 
 import { StylePresetCreateButton } from './StylePresetCreateButton';
+import { StylePresetImportButton } from './StylePresetImportButton';
 import { StylePresetList } from './StylePresetList';
 import StylePresetSearch from './StylePresetSearch';
 
 export const StylePresetMenu = () => {
   const searchTerm = useAppSelector(selectStylePresetSearchTerm);
   const allowPrivateStylePresets = useAppSelector(selectAllowPrivateStylePresets);
+  const { t } = useTranslation();
+  const groupedModelPresets: Record<string, StylePresetRecordWithImage[]> = useGroupedModelPresets() ?? {};
   const { data } = useListStylePresetsQuery(undefined, {
     selectFromResult: ({ data }) => {
       const filteredData =
@@ -34,7 +37,7 @@ export const StylePresetMenu = () => {
             acc.defaultPresets.push(preset);
           } else if (preset.type === 'project') {
             acc.sharedPresets.push(preset);
-          } else {
+          } else if (preset.type === 'user') {
             acc.presets.push(preset);
           }
           return acc;
@@ -48,8 +51,6 @@ export const StylePresetMenu = () => {
     },
   });
 
-  const { t } = useTranslation();
-
   return (
     <Flex flexDir="column" gap={2} padding={3} layerStyle="second" borderRadius="base">
       <Flex alignItems="center" gap={2} w="full" justifyContent="space-between">
@@ -59,6 +60,12 @@ export const StylePresetMenu = () => {
         <StylePresetExportButton />
       </Flex>
 
+      {/* Top Section: Model Prompts */}
+      {Object.entries(groupedModelPresets).map(([groupTitle, groupPresets]) => (
+        <StylePresetList key={groupTitle} title={groupTitle} data={groupPresets} />
+      ))}
+
+      {/* Normal Presets */}
       <StylePresetList title={t('stylePresets.myTemplates')} data={data.presets} />
       {allowPrivateStylePresets && (
         <StylePresetList title={t('stylePresets.sharedTemplates')} data={data.sharedPresets} />

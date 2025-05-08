@@ -63,7 +63,7 @@ export const useGroupedModelCombobox = <T extends AnyModelConfig>(
     );
     _options.sort((a) => (a.label?.split('/')[0]?.toLowerCase().includes(base) ? -1 : 1));
     return _options;
-  }, [modelConfigs, groupByType, getIsDisabled, base, shouldShowModelDescriptions]);
+  }, [modelConfigs, groupByType, shouldShowModelDescriptions, getIsDisabled, base]);
 
   const value = useMemo(
     () =>

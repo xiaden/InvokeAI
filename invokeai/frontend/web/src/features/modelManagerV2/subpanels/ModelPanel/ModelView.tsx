@@ -11,6 +11,7 @@ import type { AnyModelConfig } from 'services/api/types';
 
 import { MainModelDefaultSettings } from './MainModelDefaultSettings/MainModelDefaultSettings';
 import { ModelAttrView } from './ModelAttrView';
+import { PromptSets } from './PromptSets';
 import { RelatedModels } from './RelatedModels';
 
 type Props = {
@@ -87,6 +88,11 @@ export const ModelView = memo(({ modelConfig }: Props) => {
         <Box maxH="200px" overflowY="auto" layerStyle="second" borderRadius="base" p={4}>
           <RelatedModels modelConfig={modelConfig} />
         </Box>
+        {(modelConfig.type === 'main' || modelConfig.type === 'lora') && (
+          <Box maxH="200px" overflowY="auto" layerStyle="second" borderRadius="md" p={2}>
+            <PromptSets modelConfig={modelConfig} />
+          </Box>
+        )}
       </Flex>
     </Flex>
   );

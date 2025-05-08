@@ -22,14 +22,18 @@ export type StylePresetFormData = {
   negativePrompt: string;
   image: File | null;
   type: PresetType;
+  model_key?: string;
+  base_model?: string;
 };
 
 export const StylePresetForm = ({
   updatingStylePresetId,
   formData,
+  isCreatingFromModel = false,
 }: {
   updatingStylePresetId: string | null;
   formData: StylePresetFormData | null;
+  isCreatingFromModel?: boolean;
 }) => {
   const [createStylePreset, { isLoading: isCreating }] = useCreateStylePresetMutation();
   const [updateStylePreset, { isLoading: isUpdating }] = useUpdateStylePresetMutation();
@@ -55,6 +59,8 @@ export const StylePresetForm = ({
           positive_prompt: data.positivePrompt,
           negative_prompt: data.negativePrompt,
           type: data.type,
+          model_key: data.model_key,
+          base_model: data.base_model,
         },
         image: data.image,
       };
@@ -109,7 +115,13 @@ export const StylePresetForm = ({
       </Box>
 
       <Flex justifyContent="space-between" alignItems="flex-end" gap={10}>
-        {allowPrivateStylePresets ? <StylePresetTypeField control={control} name="type" /> : <Spacer />}
+        {isCreatingFromModel ? (
+          <StylePresetTypeField control={control} name="type" restrictToModelAndBase />
+        ) : allowPrivateStylePresets ? (
+          <StylePresetTypeField control={control} name="type" />
+        ) : (
+          <Spacer />
+        )}
         <Button
           onClick={handleSubmit(handleClickSave)}
           isDisabled={!formState.isValid}

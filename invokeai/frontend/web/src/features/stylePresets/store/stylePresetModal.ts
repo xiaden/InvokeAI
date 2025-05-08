@@ -5,6 +5,7 @@ const initialState: StylePresetModalState = {
   isModalOpen: false,
   updatingStylePresetId: null,
   prefilledFormData: null,
+  isCreatingFromModel: false,
 };
 
 /**
@@ -16,6 +17,7 @@ type StylePresetModalState = {
   isModalOpen: boolean;
   updatingStylePresetId: string | null;
   prefilledFormData: PrefilledFormData | null;
+  isCreatingFromModel?: boolean;
 };
 
 export type PrefilledFormData = {
@@ -24,4 +26,6 @@ export type PrefilledFormData = {
   negativePrompt: string;
   imageUrl: string | null;
   type: PresetType;
+  model_key?: string;
+  base_type?: string;
 };
