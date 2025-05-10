@@ -28,16 +28,16 @@ const initialState: ModelManagerState = {
   selectedNSFWRating: null,
   searchTerm: '',
   baseModelFilters: {
-      any: false,
-      'sd-1': false,
-      'sd-2': false,
-      'sd-3': false,
-      sdxl: false,
-      'sdxl-refiner': false,
-      flux: false,
-      cogview4: false,
-      imagen3: false,
-      'chatgpt-4o': false
+    any: false,
+    'sd-1': false,
+    'sd-2': false,
+    'sd-3': false,
+    sdxl: false,
+    'sdxl-refiner': false,
+    flux: false,
+    cogview4: false,
+    imagen3: false,
+    'chatgpt-4o': false,
   },
   showOnlyRelated: false,
 };
@@ -54,16 +54,16 @@ export const modelManagerSlice = createSlice({
       const creators = new Set<string>();
       const ratings = new Set<string>();
       const baseFilters: Record<BaseModelType, boolean> = {
-          any: false,
-          'sd-1': false,
-          'sd-2': false,
-          'sd-3': false,
-          sdxl: false,
-          'sdxl-refiner': false,
-          flux: false,
-          cogview4: false,
-          imagen3: false,
-          'chatgpt-4o': false
+        any: false,
+        'sd-1': false,
+        'sd-2': false,
+        'sd-3': false,
+        sdxl: false,
+        'sdxl-refiner': false,
+        flux: false,
+        cogview4: false,
+        imagen3: false,
+        'chatgpt-4o': false,
       };
 
       for (const config of action.payload) {
