@@ -354,8 +354,6 @@ export type paths = {
         post: operations["do_hf_login"];
         /** Reset Hf Token */
         delete: operations["reset_hf_token"];
-        /** Reset Hf Token */
-        delete: operations["reset_hf_token"];
         options?: never;
         head?: never;
         patch?: never;
@@ -12441,6 +12439,7 @@ export type components = {
          *         log_tokenization: Enable logging of parsed prompt tokens.
          *         patchmatch: Enable patchmatch inpaint code.
          *         models_dir: Path to the models directory.
+         *         model_cache_dir: Path to the model cache. If not set, models are loaded directly from models_dir.  If set, uses this path to stage models.
          *         convert_cache_dir: Path to the converted models cache directory (DEPRECATED, but do not delete because it is needed for migration from previous versions).
          *         download_cache_dir: Path to the directory that contains dynamically downloaded models.
          *         legacy_conf_dir: Path to directory of legacy checkpoint config files.
@@ -12566,6 +12565,23 @@ export type components = {
              * @default models
              */
             models_dir?: string;
+            /**
+             * Model Cache Dir
+             * @description Optional path to use as a local cache for models. If set, models will be staged here before loading.
+             */
+            model_cache_dir?: string | null;
+            /**
+             * Model Cache Dir Size
+             * @description Maximum size of the model cache directory, in gigabytes. Supports fractional sizes. When exceeded, models are evicted based on least-recently-used.
+             * @default 50
+             */
+            model_cache_dir_size?: number;
+            /**
+             * Model Cache Dir Age
+             * @description Maximum age (in days) for files in the model cache. Supports fractions. Older files may be deleted to make room for newer models.
+             * @default 30
+             */
+            model_cache_dir_age?: number;
             /**
              * Convert Cache Dir
              * Format: path
