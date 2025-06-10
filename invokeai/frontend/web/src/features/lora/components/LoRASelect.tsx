@@ -6,6 +6,7 @@ import { InformationalPopover } from 'common/components/InformationalPopover/Inf
 import { useRelatedGroupedModelCombobox } from 'common/hooks/useRelatedGroupedModelCombobox';
 import { loraAdded, selectLoRAsSlice } from 'features/controlLayers/store/lorasSlice';
 import { selectBase } from 'features/controlLayers/store/paramsSlice';
+import { NavigateToModelManagerButton } from 'features/parameters/components/MainModel/NavigateToModelManagerButton';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLoRAModels } from 'services/api/hooks/modelsByType';
@@ -71,6 +72,7 @@ const LoRASelect = () => {
         data-testid="add-lora"
         sx={selectStyles}
       />
+      <NavigateToModelManagerButton />
     </FormControl>
   );
 };

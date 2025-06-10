@@ -27,6 +27,8 @@ class PresetType(str, Enum, metaclass=MetaEnum):
     User = "user"
     Default = "default"
     Project = "project"
+    Model = "model"
+    Base = "base"
 
 
 class StylePresetChanges(BaseModel, extra="forbid"):
@@ -39,6 +41,8 @@ class StylePresetWithoutId(BaseModel):
     name: str = Field(description="The name of the style preset.")
     preset_data: PresetData = Field(description="The preset data")
     type: PresetType = Field(description="The type of style preset")
+    base_type: Optional[str] = None
+    model_key: Optional[str] = None
 
 
 class StylePresetRecordDTO(StylePresetWithoutId):

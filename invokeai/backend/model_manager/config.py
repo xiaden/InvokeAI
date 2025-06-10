@@ -136,7 +136,17 @@ class ModelConfigBase(ABC, BaseModel):
     source: str = Field(description="The original source of the model (path, URL or repo_id).")
     source_type: ModelSourceType = Field(description="The type of source")
 
+    creator_name: Optional[str] = Field(description="Creator's Name", default="None")
+    published_date: Optional[str] = Field(description="Date model Published", default="1999-12-31")
+    source_url: Optional[str] = Field(description="Model Website", default="https://")
+    nsfw_rating: Optional[str] = Field(description="NSFW rating", default="mixed")
+    license: Optional[str] = Field(description="License for this model", default="unknown")
+    model_family: Optional[str] = Field(description="Model family or origin grouping", default=None)
     description: Optional[str] = Field(description="Model description", default=None)
+    model_tags: Optional[list[str]] = Field(
+        description="Tags associated with this model. Used for categorization and filtering.",
+        default_factory=lambda: [],
+    )
     source_api_response: Optional[str] = Field(
         description="The original API response from the source, as stringified JSON.", default=None
     )
@@ -272,6 +282,10 @@ class CheckpointConfigBase(ABC, BaseModel):
     converted_at: Optional[float] = Field(
         description="When this model was last converted to diffusers", default_factory=time.time
     )
+    model_tags: Optional[list[str]] = Field(
+        description="Tags associated with this model. Used for categorization and filtering.",
+        default_factory=lambda: [],
+    )
 
 
 class DiffusersConfigBase(ABC, BaseModel):
@@ -279,6 +293,10 @@ class DiffusersConfigBase(ABC, BaseModel):
 
     format: Literal[ModelFormat.Diffusers] = ModelFormat.Diffusers
     repo_variant: Optional[ModelRepoVariant] = ModelRepoVariant.Default
+    model_tags: Optional[list[str]] = Field(
+        description="Tags associated with this model. Used for categorization and filtering.",
+        default_factory=lambda: [],
+    )
 
 
 class LoRAConfigBase(ABC, BaseModel):
@@ -286,6 +304,10 @@ class LoRAConfigBase(ABC, BaseModel):
 
     type: Literal[ModelType.LoRA] = ModelType.LoRA
     trigger_phrases: Optional[set[str]] = Field(description="Set of trigger phrases for this model", default=None)
+    model_tags: Optional[list[str]] = Field(
+        description="Tags associated with this model. Used for categorization and filtering.",
+        default_factory=lambda: [],
+    )
 
     @classmethod
     def flux_lora_format(cls, mod: ModelOnDisk):
@@ -324,6 +346,10 @@ class T5EncoderConfigBase(ABC, BaseModel):
     """Base class for diffusers-style models."""
 
     type: Literal[ModelType.T5Encoder] = ModelType.T5Encoder
+    model_tags: Optional[list[str]] = Field(
+        description="Tags associated with this model. Used for categorization and filtering.",
+        default_factory=lambda: [],
+    )
 
 
 class T5EncoderConfig(T5EncoderConfigBase, LegacyProbeMixin, ModelConfigBase):
@@ -373,6 +399,10 @@ class ControlAdapterConfigBase(ABC, BaseModel):
     default_settings: Optional[ControlAdapterDefaultSettings] = Field(
         description="Default settings for this model", default=None
     )
+    model_tags: Optional[list[str]] = Field(
+        description="Tags associated with this model. Used for categorization and filtering.",
+        default_factory=lambda: [],
+    )
 
 
 class ControlLoRALyCORISConfig(ControlAdapterConfigBase, LegacyProbeMixin, ModelConfigBase):
@@ -416,6 +446,10 @@ class VAECheckpointConfig(CheckpointConfigBase, LegacyProbeMixin, ModelConfigBas
     """Model config for standalone VAE models."""
 
     type: Literal[ModelType.VAE] = ModelType.VAE
+    model_tags: Optional[list[str]] = Field(
+        description="Tags associated with this model. Used for categorization and filtering.",
+        default_factory=lambda: [],
+    )
 
 
 class VAEDiffusersConfig(LegacyProbeMixin, ModelConfigBase):
@@ -423,6 +457,10 @@ class VAEDiffusersConfig(LegacyProbeMixin, ModelConfigBase):
 
     type: Literal[ModelType.VAE] = ModelType.VAE
     format: Literal[ModelFormat.Diffusers] = ModelFormat.Diffusers
+    model_tags: Optional[list[str]] = Field(
+        description="Tags associated with this model. Used for categorization and filtering.",
+        default_factory=lambda: [],
+    )
 
 
 class ControlNetDiffusersConfig(DiffusersConfigBase, ControlAdapterConfigBase, LegacyProbeMixin, ModelConfigBase):
@@ -458,6 +496,10 @@ class MainConfigBase(ABC, BaseModel):
     default_settings: Optional[MainModelDefaultSettings] = Field(
         description="Default settings for this model", default=None
     )
+    model_tags: Optional[list[str]] = Field(
+        description="Tags associated with this model. Used for categorization and filtering.",
+        default_factory=lambda: [],
+    )
     variant: AnyVariant = ModelVariantType.Normal
 
 
@@ -492,6 +534,10 @@ class MainDiffusersConfig(DiffusersConfigBase, MainConfigBase, LegacyProbeMixin,
 
 class IPAdapterConfigBase(ABC, BaseModel):
     type: Literal[ModelType.IPAdapter] = ModelType.IPAdapter
+    model_tags: Optional[list[str]] = Field(
+        description="Tags associated with this model. Used for categorization and filtering.",
+        default_factory=lambda: [],
+    )
 
 
 class IPAdapterInvokeAIConfig(IPAdapterConfigBase, LegacyProbeMixin, ModelConfigBase):
@@ -558,6 +604,10 @@ class SpandrelImageToImageConfig(LegacyProbeMixin, ModelConfigBase):
 
     type: Literal[ModelType.SpandrelImageToImage] = ModelType.SpandrelImageToImage
     format: Literal[ModelFormat.Checkpoint] = ModelFormat.Checkpoint
+    model_tags: Optional[list[str]] = Field(
+        description="Tags associated with this model. Used for categorization and filtering.",
+        default_factory=lambda: [],
+    )
 
 
 class SigLIPConfig(DiffusersConfigBase, LegacyProbeMixin, ModelConfigBase):
@@ -565,6 +615,10 @@ class SigLIPConfig(DiffusersConfigBase, LegacyProbeMixin, ModelConfigBase):
 
     type: Literal[ModelType.SigLIP] = ModelType.SigLIP
     format: Literal[ModelFormat.Diffusers] = ModelFormat.Diffusers
+    model_tags: Optional[list[str]] = Field(
+        description="Tags associated with this model. Used for categorization and filtering.",
+        default_factory=lambda: [],
+    )
 
 
 class FluxReduxConfig(LegacyProbeMixin, ModelConfigBase):
@@ -572,6 +626,10 @@ class FluxReduxConfig(LegacyProbeMixin, ModelConfigBase):
 
     type: Literal[ModelType.FluxRedux] = ModelType.FluxRedux
     format: Literal[ModelFormat.Checkpoint] = ModelFormat.Checkpoint
+    model_tags: Optional[list[str]] = Field(
+        description="Tags associated with this model. Used for categorization and filtering.",
+        default_factory=lambda: [],
+    )
 
 
 class LlavaOnevisionConfig(DiffusersConfigBase, ModelConfigBase):

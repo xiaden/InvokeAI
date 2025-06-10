@@ -82,7 +82,17 @@ class ModelRecordChanges(BaseModelExcludeNull):
     hash: Optional[str] = Field(description="hash of model file", default=None)
     file_size: Optional[int] = Field(description="Size of model file", default=None)
     format: Optional[str] = Field(description="format of model file", default=None)
+    creator_name: Optional[str] = Field(description="Creator's Name", default="None")
+    published_date: Optional[str] = Field(description="Date model Published", default="1999-12-31")
+    license: Optional[str] = Field(description="License for this model", default="unknown")
+    source_url: Optional[str] = Field(description="Model Website", default="https://")
+    nsfw_rating: Optional[str] = Field(description="NSFW rating", default="mixed")
+    model_family: Optional[str] = Field(description="Model family or origin grouping", default=None)
     trigger_phrases: Optional[set[str]] = Field(description="Set of trigger phrases for this model", default=None)
+    model_tags: Optional[list[str]] = Field(
+        description="Tags associated with this model. Used for categorization and filtering.",
+        default_factory=list,
+    )
     default_settings: Optional[MainModelDefaultSettings | ControlAdapterDefaultSettings] = Field(
         description="Default settings for this model", default=None
     )

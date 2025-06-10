@@ -49,15 +49,19 @@ class SqliteStylePresetRecordsStorage(StylePresetRecordsStorageBase):
                     id,
                     name,
                     preset_data,
-                    type
+                    type,
+                    base_type,
+                    model_key
                 )
-                VALUES (?, ?, ?, ?);
+                VALUES (?, ?, ?, ?, ?, ?);
                 """,
                 (
                     style_preset_id,
                     style_preset.name,
                     style_preset.preset_data.model_dump_json(),
                     style_preset.type,
+                    style_preset.base_type,
+                    style_preset.model_key,
                 ),
             )
             self._conn.commit()

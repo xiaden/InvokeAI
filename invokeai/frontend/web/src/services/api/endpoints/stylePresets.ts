@@ -41,7 +41,17 @@ export const stylePresetsApi = api.injectEndpoints({
     }),
     createStylePreset: build.mutation<
       paths['/api/v1/style_presets/']['post']['responses']['200']['content']['application/json'],
-      { data: { name: string; positive_prompt: string; negative_prompt: string; type: PresetType }; image: Blob | null }
+      {
+        data: {
+          name: string;
+          positive_prompt: string;
+          negative_prompt: string;
+          type: PresetType;
+          model_key?: string;
+          base_type?: string;
+        };
+        image: Blob | null;
+      }
     >({
       query: ({ data, image }) => {
         const formData = new FormData();

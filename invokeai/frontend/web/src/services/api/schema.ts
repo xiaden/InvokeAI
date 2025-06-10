@@ -1860,10 +1860,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -3055,10 +3095,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -3142,10 +3222,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -3305,10 +3425,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -4801,10 +4961,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -4899,10 +5099,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -4986,10 +5226,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -5077,10 +5357,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -8277,10 +8597,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -9067,10 +9427,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -9271,10 +9671,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -11963,6 +12403,7 @@ export type components = {
          *         log_tokenization: Enable logging of parsed prompt tokens.
          *         patchmatch: Enable patchmatch inpaint code.
          *         models_dir: Path to the models directory.
+         *         model_cache_dir: Path to the model cache. If not set, models are loaded directly from models_dir.  If set, uses this path to stage models.
          *         convert_cache_dir: Path to the converted models cache directory (DEPRECATED, but do not delete because it is needed for migration from previous versions).
          *         download_cache_dir: Path to the directory that contains dynamically downloaded models.
          *         legacy_conf_dir: Path to directory of legacy checkpoint config files.
@@ -12089,17 +12530,34 @@ export type components = {
              */
             models_dir?: string;
             /**
+             * Model Cache Dir
+             * @description Optional path to use as a local cache for models. If set, models will be staged here before loading.
+             */
+            model_cache_dir?: string | null;
+            /**
+             * Model Cache Dir Size
+             * @description Maximum size of the model cache directory, in gigabytes. Supports fractional sizes. When exceeded, models are evicted based on least-recently-used.
+             * @default 50
+             */
+            model_cache_dir_size?: number;
+            /**
+             * Model Cache Dir Age
+             * @description Maximum age (in days) for files in the model cache. Supports fractions. Older files may be deleted to make room for newer models.
+             * @default 30
+             */
+            model_cache_dir_age?: number;
+            /**
              * Convert Cache Dir
              * Format: path
              * @description Path to the converted models cache directory (DEPRECATED, but do not delete because it is needed for migration from previous versions).
-             * @default models/.convert_cache
+             * @default models\.convert_cache
              */
             convert_cache_dir?: string;
             /**
              * Download Cache Dir
              * Format: path
              * @description Path to the directory that contains dynamically downloaded models.
-             * @default models/.download_cache
+             * @default models\.download_cache
              */
             download_cache_dir?: string;
             /**
@@ -13363,10 +13821,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -13538,10 +14036,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -13709,10 +14247,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -13985,10 +14563,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -14094,10 +14712,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -14202,10 +14860,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -14295,10 +14993,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -16620,10 +17358,50 @@ export type components = {
              */
             format?: string | null;
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Trigger Phrases
              * @description Set of trigger phrases for this model
              */
             trigger_phrases?: string[] | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Default Settings
              * @description Default settings for this model
@@ -17146,7 +17924,7 @@ export type components = {
          * PresetType
          * @enum {string}
          */
-        PresetType: "user" | "default" | "project";
+        PresetType: "user" | "default" | "project" | "model" | "base";
         /**
          * ProgressImage
          * @description The progress image sent intermittently during processing
@@ -19409,10 +20187,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -19558,10 +20376,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -20167,6 +21025,10 @@ export type components = {
             preset_data: components["schemas"]["PresetData"];
             /** @description The type of style preset */
             type: components["schemas"]["PresetType"];
+            /** Base Type */
+            base_type?: string | null;
+            /** Model Key */
+            model_key?: string | null;
             /**
              * Id
              * @description The style preset ID.
@@ -20285,10 +21147,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -20513,10 +21415,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -20589,10 +21531,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -20702,10 +21684,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -20781,10 +21803,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -21312,10 +22374,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.
@@ -21401,10 +22503,50 @@ export type components = {
             /** @description The type of source */
             source_type: components["schemas"]["ModelSourceType"];
             /**
+             * Creator Name
+             * @description Creator's Name
+             * @default None
+             */
+            creator_name?: string | null;
+            /**
+             * Published Date
+             * @description Date model Published
+             * @default 1999-12-31
+             */
+            published_date?: string | null;
+            /**
+             * Source Url
+             * @description Model Website
+             * @default https://
+             */
+            source_url?: string | null;
+            /**
+             * Nsfw Rating
+             * @description NSFW rating
+             * @default mixed
+             */
+            nsfw_rating?: string | null;
+            /**
+             * License
+             * @description License for this model
+             * @default unknown
+             */
+            license?: string | null;
+            /**
+             * Model Family
+             * @description Model family or origin grouping
+             */
+            model_family?: string | null;
+            /**
              * Description
              * @description Model description
              */
             description?: string | null;
+            /**
+             * Model Tags
+             * @description Tags associated with this model. Used for categorization and filtering.
+             */
+            model_tags?: string[] | null;
             /**
              * Source Api Response
              * @description The original API response from the source, as stringified JSON.

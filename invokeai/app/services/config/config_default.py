@@ -65,6 +65,7 @@ class InvokeAIAppConfig(BaseSettings):
         log_tokenization: Enable logging of parsed prompt tokens.
         patchmatch: Enable patchmatch inpaint code.
         models_dir: Path to the models directory.
+        model_cache_dir: Path to the model cache. If not set, models are loaded directly from models_dir.  If set, uses this path to stage models.
         convert_cache_dir: Path to the converted models cache directory (DEPRECATED, but do not delete because it is needed for migration from previous versions).
         download_cache_dir: Path to the directory that contains dynamically downloaded models.
         legacy_conf_dir: Path to directory of legacy checkpoint config files.
@@ -136,6 +137,9 @@ class InvokeAIAppConfig(BaseSettings):
 
     # PATHS
     models_dir:                    Path = Field(default=Path("models"),     description="Path to the models directory.")
+    model_cache_dir:               Optional[Path] = Field(default=None,     description="Optional path to use as a local cache for models. If set, models will be staged here before loading.")
+    model_cache_dir_size:          float = Field(default=50.0,              description="Maximum size of the model cache directory, in gigabytes. Supports fractional sizes. When exceeded, models are evicted based on least-recently-used.")
+    model_cache_dir_age:           float = Field(default=30.0,              description="Maximum age (in days) for files in the model cache. Supports fractions. Older files may be deleted to make room for newer models.")
     convert_cache_dir:             Path = Field(default=Path("models/.convert_cache"), description="Path to the converted models cache directory (DEPRECATED, but do not delete because it is needed for migration from previous versions).")
     download_cache_dir:            Path = Field(default=Path("models/.download_cache"), description="Path to the directory that contains dynamically downloaded models.")
     legacy_conf_dir:               Path = Field(default=Path("configs"), description="Path to directory of legacy checkpoint config files.")

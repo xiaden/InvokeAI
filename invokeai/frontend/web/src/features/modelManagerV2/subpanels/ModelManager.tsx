@@ -17,7 +17,7 @@ export const ModelManager = memo(() => {
   const selectedModelKey = useAppSelector(selectSelectedModelKey);
 
   return (
-    <Flex flexDir="column" layerStyle="first" p={4} gap={4} borderRadius="base" w="50%" h="full">
+    <Flex flexDir="column" layerStyle="first" p={4} gap={4} borderRadius="base" w="35%" h="full">
       <Flex w="full" gap={4} justifyContent="space-between" alignItems="center">
         <Heading fontSize="xl" py={1}>
           {t('common.modelManager')}
