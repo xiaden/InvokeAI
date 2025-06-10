@@ -1,3 +1,4 @@
+import type { Dimensions } from 'features/controlLayers/store/types';
 import type { components, paths } from 'services/api/schema';
 import type { JsonObject, SetRequired } from 'type-fest';
 
@@ -30,7 +31,6 @@ export type InvocationJSONSchemaExtra = S['UIConfigBase'];
 // App Info
 export type AppVersion = S['AppVersion'];
 export type AppConfig = S['AppConfig'];
-export type AppDependencyVersions = S['AppDependencyVersions'];
 
 // Images
 export type ImageDTO = S['ImageDTO'];
@@ -236,6 +236,10 @@ export const isImagen3ModelConfig = (config: AnyModelConfig): config is ApiModel
   return config.type === 'main' && config.base === 'imagen3';
 };
 
+export const isImagen4ModelConfig = (config: AnyModelConfig): config is ApiModelConfig => {
+  return config.type === 'main' && config.base === 'imagen4';
+};
+
 export const isNonRefinerMainModelConfig = (config: AnyModelConfig): config is MainModelConfig => {
   return config.type === 'main' && config.base !== 'sdxl-refiner';
 };
@@ -369,6 +373,10 @@ export type UploadImageArg = {
    * Whether this is the first upload of a batch (used when displaying user feedback with toasts - ignored if the upload is silent)
    */
   isFirstUploadOfBatch?: boolean;
+  /**
+   * If provided, the uploaded image will resized to the given dimensions.
+   */
+  resize_to?: Dimensions;
 };
 
 export type ImageUploadEntryResponse = S['ImageUploadEntry'];

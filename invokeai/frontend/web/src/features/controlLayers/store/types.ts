@@ -1,3 +1,4 @@
+import type { CanvasEntityAdapter } from 'features/controlLayers/konva/CanvasEntity/types';
 import { fetchModelConfigByIdentifier } from 'features/metadata/util/modelFetchingHelpers';
 import { zMainModelBase, zModelIdentifierField } from 'features/nodes/types/common';
 import type { ParameterLoRAModel } from 'features/parameters/types/parameterSchemas';
@@ -50,7 +51,7 @@ const zCLIPVisionModelV2 = z.enum(['ViT-H', 'ViT-G', 'ViT-L']);
 export type CLIPVisionModelV2 = z.infer<typeof zCLIPVisionModelV2>;
 export const isCLIPVisionModelV2 = (v: unknown): v is CLIPVisionModelV2 => zCLIPVisionModelV2.safeParse(v).success;
 
-const zIPMethodV2 = z.enum(['full', 'style', 'composition']);
+const zIPMethodV2 = z.enum(['full', 'style', 'composition', 'style_strong', 'style_precise']);
 export type IPMethodV2 = z.infer<typeof zIPMethodV2>;
 export const isIPMethodV2 = (v: unknown): v is IPMethodV2 => zIPMethodV2.safeParse(v).success;
 
@@ -310,6 +311,8 @@ const zCanvasInpaintMaskState = zCanvasEntityBase.extend({
   fill: zFill,
   opacity: zOpacity,
   objects: z.array(zCanvasObjectState),
+  noiseLevel: z.number().gte(0).lte(1).optional(),
+  denoiseLimit: z.number().gte(0).lte(1).optional(),
 });
 export type CanvasInpaintMaskState = z.infer<typeof zCanvasInpaintMaskState>;
 
@@ -406,7 +409,7 @@ export type StagingAreaImage = {
 export const zAspectRatioID = z.enum(['Free', '16:9', '3:2', '4:3', '1:1', '3:4', '2:3', '9:16']);
 
 export const zImagen3AspectRatioID = z.enum(['16:9', '4:3', '1:1', '3:4', '9:16']);
-export const isImagen3AspectRatioID = (v: unknown): v is z.infer<typeof zImagen3AspectRatioID> =>
+export const isImagenAspectRatioID = (v: unknown): v is z.infer<typeof zImagen3AspectRatioID> =>
   zImagen3AspectRatioID.safeParse(v).success;
 
 export const zChatGPT4oAspectRatioID = z.enum(['3:2', '1:1', '2:3']);
@@ -609,3 +612,7 @@ export const isMaskEntityIdentifier = (
 ): entityIdentifier is CanvasEntityIdentifier<'inpaint_mask' | 'regional_guidance'> => {
   return isInpaintMaskEntityIdentifier(entityIdentifier) || isRegionalGuidanceEntityIdentifier(entityIdentifier);
 };
+
+// Ideally, we'd type `adapter` as `CanvasEntityAdapterBase`, but the generics make this tricky. `CanvasEntityAdapter`
+// is a union of all entity adapters and is functionally identical to `CanvasEntityAdapterBase`.
+export type LifecycleCallback = (adapter: CanvasEntityAdapter) => Promise<boolean>;

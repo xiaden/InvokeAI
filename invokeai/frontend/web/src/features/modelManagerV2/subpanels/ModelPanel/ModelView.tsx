@@ -48,7 +48,7 @@ export const ModelView = memo(({ modelConfig }: Props) => {
         )}
         <ModelEditButton />
       </ModelHeader>
-
+      
       <Tabs variant="unstyled" isFitted w="full">
         <TabList bg="base.750" px={4} py={2} borderRadius="md" boxShadow="sm">
           <Tab

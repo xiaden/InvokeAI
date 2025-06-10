@@ -4,7 +4,7 @@ import type { CanvasManager } from 'features/controlLayers/konva/CanvasManager';
 import { getPrefixedId } from 'features/controlLayers/konva/util';
 import { selectCanvasSettingsSlice } from 'features/controlLayers/store/canvasSettingsSlice';
 import { selectCanvasSlice } from 'features/controlLayers/store/selectors';
-import { isImagen3AspectRatioID } from 'features/controlLayers/store/types';
+import { isImagenAspectRatioID } from 'features/controlLayers/store/types';
 import { zModelIdentifierField } from 'features/nodes/types/common';
 import { Graph } from 'features/nodes/util/graph/generation/Graph';
 import {
@@ -24,7 +24,7 @@ export const buildImagen3Graph = async (state: RootState, manager: CanvasManager
   const generationMode = await manager.compositor.getGenerationMode();
 
   if (generationMode !== 'txt2img') {
-    throw new UnsupportedGenerationModeError(t('toast.imagen3IncompatibleGenerationMode'));
+    throw new UnsupportedGenerationModeError(t('toast.imagenIncompatibleGenerationMode', { model: 'Imagen3' }));
   }
 
   log.debug({ generationMode }, 'Building Imagen3 graph');
@@ -38,7 +38,7 @@ export const buildImagen3Graph = async (state: RootState, manager: CanvasManager
 
   assert(model, 'No model found for Imagen3 graph');
   assert(model.base === 'imagen3', 'Imagen3 graph requires Imagen3 model');
-  assert(isImagen3AspectRatioID(bbox.aspectRatio.id), 'Imagen3 does not support this aspect ratio');
+  assert(isImagenAspectRatioID(bbox.aspectRatio.id), 'Imagen3 does not support this aspect ratio');
   assert(positivePrompt.length > 0, 'Imagen3 requires positive prompt to have at least one character');
 
   const is_intermediate = canvasSettings.sendToCanvas;

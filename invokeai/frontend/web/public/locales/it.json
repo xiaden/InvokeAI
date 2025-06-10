@@ -116,7 +116,19 @@
         "error_withCount_other": "{{count}} errori",
         "value": "Valore",
         "label": "Etichetta",
-        "systemInformation": "Informazioni di sistema"
+        "systemInformation": "Informazioni di sistema",
+        "noMatches": "Nessuna corrispondenza",
+        "noOptions": "Nessuna opzione",
+        "model_withCount_one": "{{count}} modello",
+        "model_withCount_many": "{{count}} modelli",
+        "model_withCount_other": "{{count}} modelli",
+        "options_withCount_one": "{{count}} opzione",
+        "options_withCount_many": "{{count}} opzioni",
+        "options_withCount_other": "{{count}} opzioni",
+        "search": "Cerca",
+        "clear": "Cancella",
+        "compactView": "Vista compatta",
+        "fullView": "Vista completa"
     },
     "gallery": {
         "galleryImageSize": "Dimensione dell'immagine",
@@ -637,7 +649,14 @@
         "urlForbidden": "Non hai accesso a questo modello",
         "urlForbiddenErrorMessage": "Potrebbe essere necessario richiedere l'autorizzazione al sito che distribuisce il modello.",
         "urlUnauthorizedErrorMessage": "Potrebbe essere necessario configurare un gettone API per accedere a questo modello.",
-        "fileSize": "Dimensione del file"
+        "fileSize": "Dimensione del file",
+        "filterModels": "Filtra i modelli",
+        "modelPickerFallbackNoModelsInstalled": "Nessun modello installato.",
+        "modelPickerFallbackNoModelsInstalled2": "Visita <LinkComponent>Gestione modelli</LinkComponent> per installare i modelli.",
+        "manageModels": "Gestione modelli",
+        "hfTokenReset": "Ripristino del gettone HF",
+        "relatedModels": "Modelli correlati",
+        "showOnlyRelatedModels": "Correlati"
     },
     "parameters": {
         "images": "Immagini",
@@ -719,7 +738,11 @@
             "collectionNumberLTExclusiveMin": "{{value}} <= {{exclusiveMinimum}} (excl min)",
             "collectionEmpty": "raccolta vuota",
             "batchNodeCollectionSizeMismatchNoGroupId": "Dimensione della raccolta di gruppo nel Lotto non corrisponde",
-            "modelIncompatibleBboxWidth": "La larghezza del riquadro di delimitazione è {{width}} ma {{model}} richiede multipli di {{multiple}}"
+            "modelIncompatibleBboxWidth": "La larghezza del riquadro di delimitazione è {{width}} ma {{model}} richiede multipli di {{multiple}}",
+            "modelIncompatibleBboxHeight": "L'altezza del riquadro è {{height}} ma {{model}} richiede multipli di {{multiple}}",
+            "modelIncompatibleScaledBboxWidth": "La larghezza scalata del riquadro è {{width}} ma {{model}} richiede multipli di {{multiple}}",
+            "modelIncompatibleScaledBboxHeight": "L'altezza scalata del riquadro è {{height}} ma {{model}} richiede multipli di {{multiple}}",
+            "modelDisabledForTrial": "La generazione con {{modelName}} non è disponibile per gli account di prova. Accedi alle impostazioni del tuo account per effettuare l'upgrade."
         },
         "useCpuNoise": "Usa la CPU per generare rumore",
         "iterations": "Iterazioni",
@@ -746,7 +769,8 @@
         "sendToCanvas": "Invia alla Tela",
         "coherenceMinDenoise": "Min rid. rumore",
         "recallMetadata": "Richiama i metadati",
-        "disabledNoRasterContent": "Disabilitato (nessun contenuto Raster)"
+        "disabledNoRasterContent": "Disabilitato (nessun contenuto Raster)",
+        "modelDisabledForTrial": "La generazione con {{modelName}} non è disponibile per gli account di prova. Visita le <LinkComponent>impostazioni account</LinkComponent> per effettuare l'upgrade."
     },
     "settings": {
         "models": "Modelli",
@@ -855,7 +879,12 @@
         "unableToCopy": "Impossibile copiare",
         "unableToCopyDesc": "Il tuo browser non supporta l'accesso agli appunti. Gli utenti di Firefox potrebbero risolvere il problema seguendo ",
         "unableToCopyDesc_theseSteps": "questi passaggi",
-        "fluxFillIncompatibleWithT2IAndI2I": "FLUX Fill non è compatibile con Testo a Immagine o Immagine a Immagine. Per queste attività, utilizzare altri modelli FLUX."
+        "fluxFillIncompatibleWithT2IAndI2I": "FLUX Fill non è compatibile con Testo a Immagine o Immagine a Immagine. Per queste attività, utilizzare altri modelli FLUX.",
+        "problemUnpublishingWorkflow": "Problema durante l'annullamento della pubblicazione del flusso di lavoro",
+        "problemUnpublishingWorkflowDescription": "Si è verificato un problema durante l'annullamento della pubblicazione del flusso di lavoro. Riprova.",
+        "workflowUnpublished": "Flusso di lavoro non pubblicato",
+        "chatGPT4oIncompatibleGenerationMode": "ChatGPT 4o supporta solo la conversione da testo a immagine e da immagine a immagine. Utilizza altri modelli per le attività di Inpainting e Outpainting.",
+        "imagenIncompatibleGenerationMode": "Google {{model}} supporta solo la generazione da testo a immagine. Utilizza altri modelli per le attività di conversione da immagine a immagine, inpainting e outpainting."
     },
     "accessibility": {
         "invokeProgressBar": "Barra di avanzamento generazione",
@@ -1049,18 +1078,19 @@
         "unknownField_withName": "Campo \"{{name}}\" sconosciuto",
         "missingField_withName": "Campo \"{{name}}\" mancante",
         "unknownFieldEditWorkflowToFix_withName": "Il flusso di lavoro contiene un campo \"{{name}}\" sconosciuto .\nModifica il flusso di lavoro per risolvere il problema.",
-        "unexpectedField_withName": "Campo \"{{name}}\" inaspettato"
+        "unexpectedField_withName": "Campo \"{{name}}\" inaspettato",
+        "missingSourceOrTargetHandle": "Identificatore del nodo sorgente o di destinazione mancante"
     },
     "boards": {
         "autoAddBoard": "Aggiungi automaticamente bacheca",
         "menuItemAutoAdd": "Aggiungi automaticamente a questa bacheca",
         "cancel": "Annulla",
         "addBoard": "Aggiungi Bacheca",
-        "bottomMessage": "L'eliminazione di questa bacheca e delle sue immagini ripristinerà tutte le funzionalità che le stanno attualmente utilizzando.",
+        "bottomMessage": "L'eliminazione delle immagini reimposterà tutte le funzionalità che le stanno utilizzando.",
         "changeBoard": "Cambia Bacheca",
         "loading": "Caricamento in corso ...",
         "clearSearch": "Cancella Ricerca",
-        "topMessage": "Questa bacheca contiene immagini utilizzate nelle seguenti funzionalità:",
+        "topMessage": "Questa selezione contiene immagini utilizzate nelle seguenti funzionalità:",
         "move": "Sposta",
         "myBoard": "Bacheca",
         "searchBoard": "Cerca bacheche ...",
@@ -1071,7 +1101,7 @@
         "deleteBoardOnly": "solo la Bacheca",
         "deleteBoard": "Elimina Bacheca",
         "deleteBoardAndImages": "Bacheca e Immagini",
-        "deletedBoardsCannotbeRestored": "Le bacheche eliminate non possono essere ripristinate. Selezionando \"Elimina solo bacheca\" le immagini verranno spostate nella bacheca \"Non categorizzato\".",
+        "deletedBoardsCannotbeRestored": "Le bacheche e le immagini eliminate non possono essere ripristinate. Selezionando \"Elimina solo bacheca\" le immagini verranno spostate in uno stato non categorizzato.",
         "movingImagesToBoard_one": "Spostare {{count}} immagine nella bacheca:",
         "movingImagesToBoard_many": "Spostare {{count}} immagini nella bacheca:",
         "movingImagesToBoard_other": "Spostare {{count}} immagini nella bacheca:",
@@ -1093,8 +1123,11 @@
         "noBoards": "Nessuna bacheca {{boardType}}",
         "hideBoards": "Nascondi bacheche",
         "viewBoards": "Visualizza bacheche",
-        "deletedPrivateBoardsCannotbeRestored": "Le bacheche cancellate non possono essere ripristinate. Selezionando 'Cancella solo bacheca', le immagini verranno spostate nella bacheca \"Non categorizzato\" privata dell'autore dell'immagine.",
-        "updateBoardError": "Errore durante l'aggiornamento della bacheca"
+        "deletedPrivateBoardsCannotbeRestored": "Le bacheche e le immagini eliminate non possono essere ripristinate. Selezionando \"Elimina solo bacheca\", le immagini verranno spostate in uno stato privato e non categorizzato per l'autore dell'immagine.",
+        "updateBoardError": "Errore durante l'aggiornamento della bacheca",
+        "uncategorizedImages": "Immagini non categorizzate",
+        "deleteAllUncategorizedImages": "Elimina tutte le immagini non categorizzate",
+        "deletedImagesCannotBeRestored": "Le immagini eliminate non possono essere ripristinate."
     },
     "queue": {
         "queueFront": "Aggiungi all'inizio della coda",
@@ -1178,7 +1211,8 @@
         "cancelAllExceptCurrentTooltip": "Annulla tutto tranne l'elemento corrente",
         "retrySucceeded": "Elemento rieseguito",
         "retryItem": "Riesegui elemento",
-        "retryFailed": "Problema riesecuzione elemento"
+        "retryFailed": "Problema riesecuzione elemento",
+        "credits": "Crediti"
     },
     "models": {
         "noMatchingModels": "Nessun modello corrispondente",
@@ -1821,7 +1855,10 @@
             "publishingValidationRunInProgress": "È in corso la convalida della pubblicazione.",
             "publishedWorkflowsLocked": "I flussi di lavoro pubblicati sono bloccati e non possono essere modificati o eseguiti. Annulla la pubblicazione del flusso di lavoro o salva una copia per modificare o eseguire questo flusso di lavoro.",
             "warningWorkflowHasNoPublishableInputFields": "Nessun campo di ingresso pubblicabile selezionato: il flusso di lavoro pubblicato verrà eseguito solo con i valori predefiniti",
-            "publishInProgress": "Pubblicazione in corso"
+            "publishInProgress": "Pubblicazione in corso",
+            "selectingOutputNode": "Selezione del nodo di uscita",
+            "selectingOutputNodeDesc": "Fare clic su un nodo per selezionarlo come nodo di uscita del flusso di lavoro.",
+            "errorWorkflowHasUnpublishableNodes": "Il flusso di lavoro ha nodi di estrazione lotto, generatore o metadati"
         },
         "loadMore": "Carica altro",
         "searchPlaceholder": "Cerca per nome, descrizione o etichetta",
@@ -1971,12 +2008,16 @@
         "stagingOnCanvas": "Genera immagini nella",
         "ipAdapterMethod": {
             "full": "Stile e Composizione",
-            "style": "Solo Stile",
+            "style": "Stile (semplice)",
             "composition": "Solo Composizione",
             "ipAdapterMethod": "Modalità",
             "fullDesc": "Applica lo stile visivo (colori, texture) e la composizione (disposizione, struttura).",
-            "styleDesc": "Applica lo stile visivo (colori, texture) senza considerare la disposizione.",
-            "compositionDesc": "Replica disposizione e struttura ignorando lo stile di riferimento."
+            "styleDesc": "Applica lo stile visivo (colori, texture) senza considerare la disposizione. Precedentemente chiamato \"Solo stile\".",
+            "compositionDesc": "Replica disposizione e struttura ignorando lo stile di riferimento.",
+            "styleStrong": "Stile (forte)",
+            "styleStrongDesc": "Applica uno stile visivo forte, con un'influenza sulla composizione leggermente ridotta.",
+            "stylePrecise": "Stile (preciso)",
+            "stylePreciseDesc": "Applica uno stile visivo preciso, eliminando l'influenza del soggetto."
         },
         "showingType": "Mostra {{type}}",
         "dynamicGrid": "Griglia dinamica",
@@ -2258,7 +2299,7 @@
         "replaceCurrent": "Sostituisci corrente",
         "mergeDown": "Unire in basso",
         "mergingLayers": "Unione dei livelli",
-        "controlLayerEmptyState": "<UploadButton>Carica un'immagine</UploadButton>, trascina un'immagine dalla <GalleryButton>galleria</GalleryButton> su questo livello oppure disegna sulla tela per iniziare.",
+        "controlLayerEmptyState": "<UploadButton>Carica un'immagine</UploadButton>, trascina un'immagine dalla <GalleryButton>galleria</GalleryButton> su questo livello, <PullBboxButton>trascina il riquadro di delimitazione in questo livello</PullBboxButton> oppure disegna sulla tela per iniziare.",
         "useImage": "Usa immagine",
         "resetGenerationSettings": "Ripristina impostazioni di generazione",
         "referenceImageEmptyState": "Per iniziare, <UploadButton>carica un'immagine</UploadButton>, trascina un'immagine dalla <GalleryButton>galleria</GalleryButton>, oppure <PullBboxButton>trascina il riquadro di delimitazione in questo livello</PullBboxButton> su questo livello.",
@@ -2299,7 +2340,19 @@
         "errors": {
             "unableToFindImage": "Impossibile trovare l'immagine",
             "unableToLoadImage": "Impossibile caricare l'immagine"
-        }
+        },
+        "fluxReduxImageInfluence": {
+            "high": "Alta",
+            "low": "Basso",
+            "imageInfluence": "Influenza dell'immagine",
+            "lowest": "Il più basso",
+            "medium": "Medio",
+            "highest": "La più alta"
+        },
+        "denoiseLimit": "Limite di riduzione del rumore",
+        "addImageNoise": "Aggiungi $t(controlLayers.imageNoise)",
+        "addDenoiseLimit": "Aggiungi $t(controlLayers.denoiseLimit)",
+        "imageNoise": "Rumore dell'immagine"
     },
     "ui": {
         "tabs": {
@@ -2399,8 +2452,8 @@
         "watchRecentReleaseVideos": "Guarda i video su questa versione",
         "watchUiUpdatesOverview": "Guarda le novità dell'interfaccia",
         "items": [
-            "Flussi di lavoro: supporto per menu a discesa di stringhe personalizzate nel Generatore di Flussi di lavoro.",
-            "FLUX: supporto per FLUX Fill in Flussi di lavoro e Tela."
+            "Inpainting: livelli di rumore per maschera e limiti di denoise.",
+            "Canvas: proporzioni più intelligenti per SDXL e scorrimento e zoom migliorati."
         ]
     },
     "system": {

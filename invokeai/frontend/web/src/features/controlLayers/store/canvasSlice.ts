@@ -32,6 +32,7 @@ import {
 import { simplifyFlatNumbersArray } from 'features/controlLayers/util/simplify';
 import { isMainModelBase, zModelIdentifierField } from 'features/nodes/types/common';
 import { ASPECT_RATIO_MAP } from 'features/parameters/components/Bbox/constants';
+import { API_BASE_MODELS } from 'features/parameters/types/constants';
 import { getGridSize, getIsSizeOptimal, getOptimalDimension } from 'features/parameters/util/optimalDimension';
 import type { IRect } from 'konva/lib/types';
 import { isEqual, merge } from 'lodash-es';
@@ -68,7 +69,7 @@ import type {
   IPMethodV2,
   T2IAdapterConfig,
 } from './types';
-import { getEntityIdentifier, isChatGPT4oAspectRatioID, isImagen3AspectRatioID, isRenderableEntity } from './types';
+import { getEntityIdentifier, isChatGPT4oAspectRatioID, isImagenAspectRatioID, isRenderableEntity } from './types';
 import {
   converters,
   getControlLayerState,
@@ -1095,6 +1096,30 @@ export const canvasSlice = createSlice({
       state.inpaintMasks.entities = [data];
       state.selectedEntityIdentifier = { type: 'inpaint_mask', id: data.id };
     },
+    inpaintMaskNoiseAdded: (state, action: PayloadAction<EntityIdentifierPayload<void, 'inpaint_mask'>>) => {
+      const { entityIdentifier } = action.payload;
+      const entity = selectEntity(state, entityIdentifier);
+      if (entity && entity.type === 'inpaint_mask') {
+        entity.noiseLevel = 0.15; // Default noise level
+      }
+    },
+    inpaintMaskNoiseChanged: (
+      state,
+      action: PayloadAction<EntityIdentifierPayload<{ noiseLevel: number }, 'inpaint_mask'>>
+    ) => {
+      const { entityIdentifier, noiseLevel } = action.payload;
+      const entity = selectEntity(state, entityIdentifier);
+      if (entity && entity.type === 'inpaint_mask') {
+        entity.noiseLevel = noiseLevel;
+      }
+    },
+    inpaintMaskNoiseDeleted: (state, action: PayloadAction<EntityIdentifierPayload<void, 'inpaint_mask'>>) => {
+      const { entityIdentifier } = action.payload;
+      const entity = selectEntity(state, entityIdentifier);
+      if (entity && entity.type === 'inpaint_mask') {
+        entity.noiseLevel = undefined;
+      }
+    },
     inpaintMaskConvertedToRegionalGuidance: {
       reducer: (
         state,
@@ -1132,6 +1157,30 @@ export const canvasSlice = createSlice({
       ) => ({
         payload: { ...payload, newId: getPrefixedId('regional_guidance') },
       }),
+    },
+    inpaintMaskDenoiseLimitAdded: (state, action: PayloadAction<EntityIdentifierPayload<void, 'inpaint_mask'>>) => {
+      const { entityIdentifier } = action.payload;
+      const entity = selectEntity(state, entityIdentifier);
+      if (entity && entity.type === 'inpaint_mask') {
+        entity.denoiseLimit = 1.0; // Default denoise limit
+      }
+    },
+    inpaintMaskDenoiseLimitChanged: (
+      state,
+      action: PayloadAction<EntityIdentifierPayload<{ denoiseLimit: number }, 'inpaint_mask'>>
+    ) => {
+      const { entityIdentifier, denoiseLimit } = action.payload;
+      const entity = selectEntity(state, entityIdentifier);
+      if (entity && entity.type === 'inpaint_mask') {
+        entity.denoiseLimit = denoiseLimit;
+      }
+    },
+    inpaintMaskDenoiseLimitDeleted: (state, action: PayloadAction<EntityIdentifierPayload<void, 'inpaint_mask'>>) => {
+      const { entityIdentifier } = action.payload;
+      const entity = selectEntity(state, entityIdentifier);
+      if (entity && entity.type === 'inpaint_mask') {
+        entity.denoiseLimit = undefined;
+      }
     },
     //#region BBox
     bboxScaledWidthChanged: (state, action: PayloadAction<number>) => {
@@ -1236,7 +1285,10 @@ export const canvasSlice = createSlice({
       state.bbox.aspectRatio.id = id;
       if (id === 'Free') {
         state.bbox.aspectRatio.isLocked = false;
-      } else if (state.bbox.modelBase === 'imagen3' && isImagen3AspectRatioID(id)) {
+      } else if (
+        (state.bbox.modelBase === 'imagen3' || state.bbox.modelBase === 'imagen4') &&
+        isImagenAspectRatioID(id)
+      ) {
         // Imagen3 has specific output sizes that are not exactly the same as the aspect ratio. Need special handling.
         if (id === '16:9') {
           state.bbox.rect.width = 1408;
@@ -1742,7 +1794,7 @@ export const canvasSlice = createSlice({
       const base = model?.base;
       if (isMainModelBase(base) && state.bbox.modelBase !== base) {
         state.bbox.modelBase = base;
-        if (base === 'imagen3' || base === 'chatgpt-4o') {
+        if (API_BASE_MODELS.includes(base)) {
           state.bbox.aspectRatio.isLocked = true;
           state.bbox.aspectRatio.value = 1;
           state.bbox.aspectRatio.id = '1:1';
@@ -1865,6 +1917,12 @@ export const {
   // Inpaint mask
   inpaintMaskAdded,
   inpaintMaskConvertedToRegionalGuidance,
+  inpaintMaskNoiseAdded,
+  inpaintMaskNoiseChanged,
+  inpaintMaskNoiseDeleted,
+  inpaintMaskDenoiseLimitAdded,
+  inpaintMaskDenoiseLimitChanged,
+  inpaintMaskDenoiseLimitDeleted,
   // inpaintMaskRecalled,
 } = canvasSlice.actions;
 
@@ -1881,7 +1939,7 @@ export const canvasPersistConfig: PersistConfig<CanvasState> = {
 };
 
 const syncScaledSize = (state: CanvasState) => {
-  if (state.bbox.modelBase === 'imagen3' || state.bbox.modelBase === 'chatgpt-4o') {
+  if (API_BASE_MODELS.includes(state.bbox.modelBase)) {
     // Imagen3 has fixed sizes. Scaled bbox is not supported.
     return;
   }

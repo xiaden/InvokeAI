@@ -76,10 +76,21 @@ const zBaseModel = z.enum([
   'flux',
   'cogview4',
   'imagen3',
+  'imagen4',
   'chatgpt-4o',
 ]);
 export type BaseModelType = z.infer<typeof zBaseModel>;
-export const zMainModelBase = z.enum(['sd-1', 'sd-2', 'sd-3', 'sdxl', 'flux', 'cogview4', 'imagen3', 'chatgpt-4o']);
+export const zMainModelBase = z.enum([
+  'sd-1',
+  'sd-2',
+  'sd-3',
+  'sdxl',
+  'flux',
+  'cogview4',
+  'imagen3',
+  'imagen4',
+  'chatgpt-4o',
+]);
 export type MainModelBase = z.infer<typeof zMainModelBase>;
 export const isMainModelBase = (base: unknown): base is MainModelBase => zMainModelBase.safeParse(base).success;
 const zModelType = z.enum([
@@ -147,7 +158,7 @@ export const zIPAdapterField = z.object({
   image: zImageField,
   ip_adapter_model: zModelIdentifierField,
   weight: z.number(),
-  method: z.enum(['full', 'style', 'composition']),
+  method: z.enum(['full', 'style', 'composition', 'style_strong', 'style_precise']),
   begin_step_percent: z.number().optional(),
   end_step_percent: z.number().optional(),
 });

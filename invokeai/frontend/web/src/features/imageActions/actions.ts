@@ -1,7 +1,7 @@
 import type { AppDispatch, RootState } from 'app/store/store';
 import { deepClone } from 'common/util/deepClone';
 import { selectDefaultIPAdapter, selectDefaultRefImageConfig } from 'features/controlLayers/hooks/addLayerHooks';
-import { CanvasEntityAdapterBase } from 'features/controlLayers/konva/CanvasEntity/CanvasEntityAdapterBase';
+import { CanvasEntityTransformer } from 'features/controlLayers/konva/CanvasEntity/CanvasEntityTransformer';
 import { getPrefixedId } from 'features/controlLayers/konva/util';
 import { canvasReset } from 'features/controlLayers/store/actions';
 import {
@@ -20,6 +20,7 @@ import type {
   CanvasControlLayerState,
   CanvasEntityIdentifier,
   CanvasEntityType,
+  CanvasImageState,
   CanvasInpaintMaskState,
   CanvasRasterLayerState,
   CanvasRegionalGuidanceState,
@@ -34,7 +35,7 @@ import { fieldImageValueChanged } from 'features/nodes/store/nodesSlice';
 import type { FieldIdentifier } from 'features/nodes/types/field';
 import { upscaleInitialImageChanged } from 'features/parameters/store/upscaleSlice';
 import { getOptimalDimension } from 'features/parameters/util/optimalDimension';
-import { imagesApi } from 'services/api/endpoints/images';
+import { imageDTOToFile, imagesApi, uploadImage } from 'services/api/endpoints/images';
 import type { ImageDTO } from 'services/api/types';
 import type { Equals } from 'tsafe';
 import { assert } from 'tsafe';
@@ -142,14 +143,14 @@ export const createNewCanvasEntityFromImage = (arg: {
  *
  * Using 'raster_layer' for the type and enabling `withResize` replicates the common img2img flow.
  */
-export const newCanvasFromImage = (arg: {
+export const newCanvasFromImage = async (arg: {
   imageDTO: ImageDTO;
   type: CanvasEntityType | 'regional_guidance_with_reference_image';
-  withResize: boolean;
+  withResize?: boolean;
   dispatch: AppDispatch;
   getState: () => RootState;
 }) => {
-  const { type, imageDTO, withResize, dispatch, getState } = arg;
+  const { type, imageDTO, withResize = false, dispatch, getState } = arg;
   const state = getState();
 
   const base = selectBboxModelBase(state);
@@ -158,20 +159,29 @@ export const newCanvasFromImage = (arg: {
   const optimalDimension = getOptimalDimension(base);
   const { width, height } = calculateNewSize(ratio, optimalDimension ** 2, base);
 
-  const imageObject = imageDTOToImageObject(imageDTO);
-  const { x, y } = selectBboxRect(state);
+  let imageObject: CanvasImageState;
 
-  const addInitCallback = (id: string) => {
-    CanvasEntityAdapterBase.registerInitCallback(async (adapter) => {
+  if (withResize && (width !== imageDTO.width || height !== imageDTO.height)) {
+    const resizedImageDTO = await uploadImage({
+      file: await imageDTOToFile(imageDTO),
+      image_category: 'general',
+      is_intermediate: true,
+      silent: true,
+      resize_to: { width, height },
+    });
+    imageObject = imageDTOToImageObject(resizedImageDTO);
+  } else {
+    imageObject = imageDTOToImageObject(imageDTO);
+  }
+
+  const addFitOnLayerInitCallback = (adapterId: string) => {
+    CanvasEntityTransformer.registerBboxUpdatedCallback((adapter) => {
       // Skip the callback if the adapter is not the one we are creating
-      if (adapter.id !== id) {
-        return false;
+      if (adapter.id !== adapterId) {
+        return Promise.resolve(false);
       }
-      // Fit the layer to the bbox w/ fill strategy
-      await adapter.transformer.startTransform({ silent: true });
-      adapter.transformer.fitToBboxFill();
-      await adapter.transformer.applyTransform();
-      return true;
+      adapter.manager.stage.fitBboxAndLayersToStage();
+      return Promise.resolve(true);
     });
   };
 
@@ -180,11 +190,8 @@ export const newCanvasFromImage = (arg: {
       const overrides = {
         id: getPrefixedId('raster_layer'),
         objects: [imageObject],
-        position: { x, y },
       } satisfies Partial<CanvasRasterLayerState>;
-      if (withResize) {
-        addInitCallback(overrides.id);
-      }
+      addFitOnLayerInitCallback(overrides.id);
       dispatch(canvasReset());
       // The `bboxChangedFromCanvas` reducer does no validation! Careful!
       dispatch(bboxChangedFromCanvas({ x: 0, y: 0, width, height }));
@@ -195,12 +202,9 @@ export const newCanvasFromImage = (arg: {
       const overrides = {
         id: getPrefixedId('control_layer'),
         objects: [imageObject],
-        position: { x, y },
         controlAdapter: deepClone(initialControlNet),
       } satisfies Partial<CanvasControlLayerState>;
-      if (withResize) {
-        addInitCallback(overrides.id);
-      }
+      addFitOnLayerInitCallback(overrides.id);
       dispatch(canvasReset());
       // The `bboxChangedFromCanvas` reducer does no validation! Careful!
       dispatch(bboxChangedFromCanvas({ x: 0, y: 0, width, height }));
@@ -211,11 +215,8 @@ export const newCanvasFromImage = (arg: {
       const overrides = {
         id: getPrefixedId('inpaint_mask'),
         objects: [imageObject],
-        position: { x, y },
       } satisfies Partial<CanvasInpaintMaskState>;
-      if (withResize) {
-        addInitCallback(overrides.id);
-      }
+      addFitOnLayerInitCallback(overrides.id);
       dispatch(canvasReset());
       // The `bboxChangedFromCanvas` reducer does no validation! Careful!
       dispatch(bboxChangedFromCanvas({ x: 0, y: 0, width, height }));
@@ -226,11 +227,8 @@ export const newCanvasFromImage = (arg: {
       const overrides = {
         id: getPrefixedId('regional_guidance'),
         objects: [imageObject],
-        position: { x, y },
       } satisfies Partial<CanvasRegionalGuidanceState>;
-      if (withResize) {
-        addInitCallback(overrides.id);
-      }
+      addFitOnLayerInitCallback(overrides.id);
       dispatch(canvasReset());
       // The `bboxChangedFromCanvas` reducer does no validation! Careful!
       dispatch(bboxChangedFromCanvas({ x: 0, y: 0, width, height }));

@@ -118,7 +118,15 @@
         "value": "値",
         "label": "ラベル",
         "saveChanges": "変更を保存",
-        "error_withCount_other": "{{count}} 個のエラー"
+        "error_withCount_other": "{{count}} 個のエラー",
+        "noMatches": "合致しません",
+        "model_withCount_other": "{{count}}個のモデル",
+        "noOptions": "オプションがありません",
+        "search": "検索",
+        "clear": "クリア",
+        "compactView": "コンパクトビュー",
+        "fullView": "フルビュー",
+        "options_withCount_other": "{{count}}個のオプション"
     },
     "gallery": {
         "galleryImageSize": "画像のサイズ",
@@ -384,7 +392,7 @@
                 "title": "全選択"
             },
             "addNode": {
-                "desc": "ノード追加メニューを開く．",
+                "desc": "ノード追加メニューを開く。",
                 "title": "ノードを追加"
             },
             "pasteSelectionWithEdges": {
@@ -583,7 +591,7 @@
         "deleteModelImage": "モデル画像を削除",
         "hfTokenInvalid": "ハギングフェイストークンが無効または見つかりません",
         "hfForbiddenErrorMessage": "リポジトリにアクセスすることを勧めます.所有者はダウンロードにあたり利用規約への同意を要求する場合があります.",
-        "noModelsInstalled": "インストールされているモデルなし",
+        "noModelsInstalled": "インストールされているモデルがありません",
         "pathToConfig": "設定へのパス",
         "noModelsInstalledDesc1": "モデルを一緒にインストール",
         "pruneTooltip": "完了したインポートをキューから削除",
@@ -639,7 +647,14 @@
         "urlUnauthorizedErrorMessage": "このモデルにアクセスするためにAPIトークンを構成する必要があるかもしれません.",
         "urlUnauthorizedErrorMessage2": "ここでどうやるか学びます.",
         "inplaceInstall": "定位置にインストール",
-        "fileSize": "ファイルサイズ"
+        "fileSize": "ファイルサイズ",
+        "modelPickerFallbackNoModelsInstalled2": "<LinkComponent>モデルマネージャー</LinkComponent> にアクセスしてモデルをインストールしてください.",
+        "filterModels": "フィルターモデル",
+        "modelPickerFallbackNoModelsInstalled": "モデルがインストールされていません.",
+        "manageModels": "モデル管理",
+        "hfTokenReset": "ハギングフェイストークンリセット",
+        "relatedModels": "関連のあるモデル",
+        "showOnlyRelatedModels": "関連している"
     },
     "parameters": {
         "images": "画像",
@@ -684,7 +699,28 @@
             "collectionNumberGTMax": "{{value}} > {{maximum}} (最大増加)",
             "missingNodeTemplate": "ノードテンプレートの欠落",
             "batchNodeNotConnected": "バッチノードが: {{label}}につながっていない",
-            "collectionNumberLTMin": "{{value}} < {{minimum}} (最小増加)"
+            "collectionNumberLTMin": "{{value}} < {{minimum}} (最小増加)",
+            "fluxModelIncompatibleScaledBboxHeight": "$t(parameters.invoke.fluxRequiresDimensionsToBeMultipleOf16), スケーリングされたbboxの高さは{{height}}です",
+            "fluxModelMultipleControlLoRAs": "コントロールLoRAは1度に1つしか使用できません",
+            "noPrompts": "プロンプトが生成されません",
+            "noNodesInGraph": "グラフにノードがありません",
+            "noCLIPEmbedModelSelected": "FLUX生成にCLIPエンベッドモデルが選択されていません",
+            "canvasIsFiltering": "キャンバスがビジー状態(フィルタリング)",
+            "canvasIsCompositing": "キャンバスがビジー状態(合成)",
+            "systemDisconnected": "システムが切断されました",
+            "fluxModelIncompatibleScaledBboxWidth": "$t(parameters.invoke.fluxRequiresDimensionsToBeMultipleOf16), 拡大縮小されたbboxの幅は{{width}}です",
+            "canvasIsTransforming": "キャンバスがビジー状態(変換)",
+            "canvasIsRasterizing": "キャンバスがビジー状態(ラスタライズ)",
+            "modelIncompatibleBboxHeight": "Bboxの高さは{{height}}ですが，{{model}}は{{multiple}}の倍数が必要です",
+            "modelIncompatibleScaledBboxHeight": "bboxの高さは{{height}}ですが，{{model}}は{{multiple}}の倍数を必要です",
+            "modelIncompatibleBboxWidth": "Bboxの幅は{{width}}ですが, {{model}}は{{multiple}}の倍数が必要です",
+            "modelIncompatibleScaledBboxWidth": "bboxの幅は{{width}}ですが，{{model}}は{{multiple}}の倍数が必要です",
+            "canvasIsSelectingObject": "キャンバスがビジー状態(オブジェクトの選択)",
+            "fluxModelIncompatibleBboxWidth": "$t(parameters.invoke.fluxRequiresDimensionsToBeMultipleOf16), bboxの幅は{{width}}です",
+            "fluxModelIncompatibleBboxHeight": "$t(parameters.invoke.fluxRequiresDimensionsToBeMultipleOf16), bboxの高さは{{height}}です",
+            "noFLUXVAEModelSelected": "FLUX生成にVAEモデルが選択されていません",
+            "noT5EncoderModelSelected": "FLUX生成にT5エンコーダモデルが選択されていません",
+            "modelDisabledForTrial": "{{modelName}} を使用した生成はトライアルアカウントではご利用いただけません.アカウント設定にアクセスしてアップグレードしてください。"
         },
         "aspect": "縦横比",
         "lockAspectRatio": "縦横比を固定",
@@ -716,7 +752,24 @@
         "cfgRescaleMultiplier": "CFGリスケール倍率",
         "clipSkip": "クリップスキップ",
         "guidance": "ガイダンス",
-        "infillMethod": "充填法"
+        "infillMethod": "充填法",
+        "patchmatchDownScaleSize": "ダウンスケール",
+        "boxBlur": "ボックスぼかし",
+        "remixImage": "リミックス画像",
+        "processImage": "プロセス画像",
+        "useCpuNoise": "CPUノイズの使用",
+        "staged": "ステージ",
+        "perlinNoise": "パーリン・ノイズ(グラデーションノイズ)",
+        "imageActions": "画像処理",
+        "gaussianBlur": "ガウスぼかし",
+        "noiseThreshold": "ノイズの閾値",
+        "maskBlur": "マスクぼかし",
+        "seamlessYAxis": "シームレスなY軸",
+        "optimizedImageToImage": "イメージ to イメージの最適化",
+        "symmetry": "左右対称",
+        "seamlessXAxis": "シームレスなX軸",
+        "sendToCanvas": "キャンバスに送る",
+        "modelDisabledForTrial": "{{modelName}} を使用した生成はトライアルアカウントではご利用いただけません.アップグレードするには,<LinkComponent>アカウント設定</LinkComponent> にアクセスしてください."
     },
     "settings": {
         "models": "モデル",
@@ -728,16 +781,101 @@
         "resetComplete": "WebUIはリセットされました。",
         "ui": "ユーザーインターフェイス",
         "beta": "ベータ",
-        "developer": "開発者"
+        "developer": "開発者",
+        "antialiasProgressImages": "アンチエイリアスの経過画像",
+        "enableInformationalPopovers": "情報ポップオーバーを有効にする",
+        "enableModelDescriptions": "ドロップダウンでモデルの説明を有効にする",
+        "confirmOnNewSession": "新しいセッションで確認する",
+        "informationalPopoversDisabled": "情報ポップオーバーが無効になっています",
+        "informationalPopoversDisabledDesc": "情報ポップオーバーが無効になっています.設定で有効にしてください.",
+        "enableNSFWChecker": "NSFWチェッカーを有効にする",
+        "enableInvisibleWatermark": "目に見えない透かしを有効にする",
+        "enableHighlightFocusedRegions": "重点領域を強調表示",
+        "clearIntermediatesDesc1": "中間物をクリアすると、キャンバスとコントロールネットの状態がリセットされます.",
+        "showProgressInViewer": "ビューアで進行状況画像を表示する",
+        "modelDescriptionsDisabled": "ドロップダウンのモデル説明が無効になっています",
+        "modelDescriptionsDisabledDesc": "ドロップダウンのモデル説明が無効になっています.設定で有効にしてください.",
+        "clearIntermediatesDisabled": "中間物をクリアするにはキューが空でなければなりません",
+        "clearIntermediatesDesc2": "中間画像は生成時に生成される副産物であり、ギャラリーに表示される結果画像とは異なります.中間画像を削除するとディスク容量が解放されます.",
+        "intermediatesClearedFailed": "中間物をクリアする問題",
+        "reloadingIn": "リロード中",
+        "clearIntermediatesDesc3": "ギャラリー画像は削除されません.",
+        "clearIntermediates": "中間物をクリア",
+        "clearIntermediatesWithCount_other": "{{count}} 個の中間物をクリア",
+        "intermediatesCleared_other": "{{count}}個の中間物がクリアされました",
+        "general": "一般",
+        "generation": "生成",
+        "showDetailedInvocationProgress": "進捗状況の詳細を表示"
     },
     "toast": {
         "uploadFailed": "アップロード失敗",
         "imageCopied": "画像をコピー",
         "imageUploadFailed": "画像のアップロードに失敗しました",
-        "uploadFailedInvalidUploadDesc": "画像はPNGかJPGである必要があります。",
+        "uploadFailedInvalidUploadDesc": "画像はPNGかJPGかWEBPである必要があります .",
         "sentToUpscale": "アップスケーラーに転送しました",
         "imageUploaded": "画像をアップロードしました",
-        "serverError": "サーバーエラー"
+        "serverError": "サーバーエラー",
+        "prunedQueue": "キューを破棄",
+        "workflowDeleted": "ワークフローが削除されました",
+        "unableToLoadStylePreset": "スタイルプリセットをロードできません",
+        "loadedWithWarnings": "ワークフローが警告付きでロードされました",
+        "parameters": "パラメーター",
+        "parameterSet": "パラメーターが呼び出されました",
+        "pasteSuccess": "{{destination}} に貼り付けました",
+        "imagesWillBeAddedTo": "アップロードされた画像はボード {{boardName}} のアセットに追加されます.",
+        "layerCopiedToClipboard": "レイヤーがクリップボードにコピーされました",
+        "pasteFailed": "貼り付け失敗",
+        "imageSavingFailed": "画像保存に失敗しました",
+        "importSuccessful": "インポートが成功しました",
+        "problemDownloadingImage": "画像をダウンロードできません",
+        "modelAddedSimple": "モデルがキューに追加されました",
+        "uploadFailedInvalidUploadDesc_withCount_other": "PNG、JPEG、または WEBP 画像は最大 1 つにする必要があります.",
+        "outOfMemoryErrorDesc": "現在の生成設定はシステム容量を超えています.設定を調整してもう一度お試しください.",
+        "parametersSet": "パラメーターが呼び出されました",
+        "modelImportCanceled": "モデルのインポートがキャンセルされました",
+        "problemRetrievingWorkflow": "ワークフローを取得した問題",
+        "problemUnpublishingWorkflow": "取り消されたワークフローの問題",
+        "parametersNotSet": "パラメーターが呼び出されていません",
+        "problemCopyingImage": "画像をコピーできません",
+        "baseModelChanged": "ベースモデルが変更されました",
+        "baseModelChangedCleared_other": "{{count}} 個の互換性のないサブモデルをクリア，または無効にしました",
+        "canceled": "処理がキャンセルされました",
+        "connected": "サーバーに接続されました",
+        "linkCopied": "リンクがコピーされました",
+        "unableToLoadImage": "画像をロードできません",
+        "unableToLoadImageMetadata": "画像のメタデータをロードできません",
+        "imageSaved": "画像が保存されました",
+        "importFailed": "インポートに失敗しました",
+        "invalidUpload": "無効なアップロードです",
+        "outOfMemoryError": "メモリ不足エラー",
+        "parameterSetDesc": "{{parameter}}を呼び出し",
+        "errorCopied": "エラーがコピーされました",
+        "sentToCanvas": "キャンバスに送信",
+        "setControlImage": "コントロール画像としてセット",
+        "workflowLoaded": "ワークフローがロードされました",
+        "unableToCopy": "コピーできません",
+        "unableToCopyDesc": "あなたのブラウザはクリップボードアクセスをサポートしていません.Firefoxユーザーの場合は、以下の手順で修正できる可能性があります. ",
+        "fluxFillIncompatibleWithT2IAndI2I": "FLUX Fillは、テキストから画像へ、または画像から画像へ変換機能と互換性がありません.これらのタスクには、他のFLUXモデルをご利用ください.",
+        "problemUnpublishingWorkflowDescription": "取り下げられたワークフローの問題がありました.もう一度試してください.",
+        "workflowUnpublished": "ワークフローが取り消されました",
+        "sessionRef": "セッション: {{sessionId}}",
+        "somethingWentWrong": "問題が発生しました",
+        "unableToCopyDesc_theseSteps": "これらのステップ数",
+        "stylePresetLoaded": "スタイルプリセットがロードされました",
+        "parameterNotSetDescWithMessage": "{{parameter}}: {{message}}を呼び出せません",
+        "problemCopyingLayer": "レイヤーをコピーできません",
+        "problemSavingLayer": "レイヤー保存ができません",
+        "setNodeField": "ノードフィールドとしてセット",
+        "layerSavedToAssets": "レイヤーがアセットに保存されました",
+        "outOfMemoryErrorDescLocal": "OOM を削減するには、<LinkComponent>低 VRAM ガイド</LinkComponent> に従ってください.",
+        "parameterNotSet": "パラメーターが呼び出されていません",
+        "addedToBoard": "{{name}} 個の資産をボードに追加しました",
+        "addedToUncategorized": "$t(boards.uncategorized)個のアセットがボードに追加されました",
+        "problemDeletingWorkflow": "ワークフローが削除された問題",
+        "imageNotLoadedDesc": "画像を見つけられません",
+        "parameterNotSetDesc": "{{parameter}}を呼び出せません",
+        "chatGPT4oIncompatibleGenerationMode": "ChatGPT 4oは,テキストから画像への生成と画像から画像への生成のみをサポートしています.インペインティングおよび,アウトペインティングタスクには他のモデルを使用してください.",
+        "imagenIncompatibleGenerationMode": "Google {{model}} はテキストから画像への変換のみをサポートしています. 画像から画像への変換, インペインティング,アウトペインティングのタスクには他のモデルを使用してください."
     },
     "accessibility": {
         "invokeProgressBar": "進捗バー",
@@ -862,7 +1000,8 @@
         "batchSize": "バッチサイズ",
         "retryFailed": "項目のリトライに問題があります",
         "cancelAllExceptCurrentQueueItemAlertDialog": "現在の項目を除くすべてのキュー項目をキャンセルすると、保留中の項目は停止しますが、進行中の項目は完了します。",
-        "retrySucceeded": "項目がリトライされました"
+        "retrySucceeded": "項目がリトライされました",
+        "credits": "クレジット"
     },
     "models": {
         "noMatchingModels": "一致するモデルがありません",
@@ -1017,11 +1156,11 @@
         "unknownField": "不明なフィールド",
         "unexpectedField_withName": "予期しないフィールド\"{{name}}\"",
         "loadingTemplates": "読み込み中 {{name}}",
-        "validateConnectionsHelp": "無効な接続が行われたり,無効なグラフが呼び出されたりしないようにします.",
+        "validateConnectionsHelp": "無効な接続が行われたり,無効なグラフが呼び出されたりしないようにします",
         "validateConnections": "接続とグラフを確認する",
         "saveToGallery": "ギャラリーに保存",
         "newWorkflowDesc": "新しいワークフローを作りますか？",
-        "unknownFieldType": "$t(nodes.unknownField)型:{type}}",
+        "unknownFieldType": "$t(nodes.unknownField)型: {{type}}",
         "unsupportedArrayItemType": "サポートされていない配列項目型です \"{{type}}\"",
         "unableToLoadWorkflow": "ワークフローが読み込めません",
         "unableToValidateWorkflow": "ワークフローを確認できません",
@@ -1064,13 +1203,13 @@
         "downloadBoard": "ボードをダウンロード",
         "changeBoard": "ボードを変更",
         "loading": "ロード中...",
-        "topMessage": "このボードには、以下の機能で使用されている画像が含まれています：",
-        "bottomMessage": "このボードおよび画像を削除すると、現在これらを利用している機能はリセットされます。",
+        "topMessage": "この選択には、次の機能で使用される画像が含まれています:",
+        "bottomMessage": "この画像を削除すると、現在利用している機能はリセットされます。",
         "clearSearch": "検索をクリア",
         "deleteBoard": "ボードの削除",
         "deleteBoardAndImages": "ボードと画像の削除",
         "deleteBoardOnly": "ボードのみ削除",
-        "deletedBoardsCannotbeRestored": "削除されたボードは復元できません。\"ボードのみ削除\"を選択すると画像は未分類に移動されます。",
+        "deletedBoardsCannotbeRestored": "削除したボードと画像は復元できません。「ボードのみ削除」を選択すると、画像は未分類の状態になります。",
         "movingImagesToBoard_other": "{{count}} の画像をボードに移動:",
         "hideBoards": "ボードを隠す",
         "assetsWithCount_other": "{{count}} のアセット",
@@ -1085,9 +1224,12 @@
         "imagesWithCount_other": "{{count}} の画像",
         "updateBoardError": "ボード更新エラー",
         "selectedForAutoAdd": "自動追加に選択済み",
-        "deletedPrivateBoardsCannotbeRestored": "削除されたボードは復元できません。\"ボードのみ削除\"を選択すると画像はその作成者のプライベートな未分類に移動されます。",
+        "deletedPrivateBoardsCannotbeRestored": "削除されたボードと画像は復元できません。「ボードのみ削除」を選択すると、画像は作成者に対して非公開の未分類状態になります。",
         "noBoards": "{{boardType}} ボードがありません",
-        "viewBoards": "ボードを表示"
+        "viewBoards": "ボードを表示",
+        "uncategorizedImages": "分類されていない画像",
+        "deleteAllUncategorizedImages": "分類されていないすべての画像を削除",
+        "deletedImagesCannotBeRestored": "削除した画像は復元できません."
     },
     "invocationCache": {
         "invocationCache": "呼び出しキャッシュ",
@@ -1110,86 +1252,427 @@
         "paramRatio": {
             "heading": "縦横比",
             "paragraphs": [
-                "生成された画像の縦横比。"
+                "生成された画像の縦横比。",
+                "SD1.5 モデルの場合は 512x512 に相当する画像サイズ (ピクセル数) が推奨され, SDXL モデルの場合は 1024x1024 に相当するサイズが推奨されます."
             ]
         },
         "regionalGuidanceAndReferenceImage": {
-            "heading": "領域ガイダンスと領域参照画像"
+            "heading": "領域ガイダンスと領域参照画像",
+            "paragraphs": [
+                "領域ガイダンスの場合は,ブラシを使用して,グローバルプロンプトの要素が表示される場所をガイドします.",
+                "領域参照画像の場合は,ブラシを使用して特定の領域に参照画像を適用します."
+            ]
         },
         "regionalReferenceImage": {
-            "heading": "領域参照画像"
+            "heading": "領域参照画像",
+            "paragraphs": [
+                "特定の領域に参照画像を適用するためのブラシ."
+            ]
         },
         "paramScheduler": {
-            "heading": "スケジューラー"
+            "heading": "スケジューラー",
+            "paragraphs": [
+                "スケジューラーは生成中のプロセスで使用されます.",
+                "各スケジューラは、画像にノイズを反復的に追加する方法や、モデルの出力に基づいてサンプルを更新する方法を定義します."
+            ]
         },
         "regionalGuidance": {
-            "heading": "領域ガイダンス"
+            "heading": "領域ガイダンス",
+            "paragraphs": [
+                "グローバルプロンプトの要素が表示される場所をガイドするブラシ."
+            ]
         },
         "rasterLayer": {
-            "heading": "ラスターレイヤー"
+            "heading": "ラスターレイヤー",
+            "paragraphs": [
+                "画像生成中に使用される,キャンバスのピクセルベースのコンテンツ."
+            ]
         },
         "globalReferenceImage": {
-            "heading": "全域参照画像"
+            "heading": "全域参照画像",
+            "paragraphs": [
+                "参照画像を適用して,生成全体に影響を及ぼします."
+            ]
         },
         "paramUpscaleMethod": {
-            "heading": "アップスケール手法"
+            "heading": "アップスケール手法",
+            "paragraphs": [
+                "高解像度修正のために画像を拡大するために使用される方法。"
+            ]
         },
         "upscaleModel": {
-            "heading": "アップスケールモデル"
+            "heading": "アップスケールモデル",
+            "paragraphs": [
+                "アップスケールモデルは、ディテールを追加する前に画像を出力サイズに合わせて拡大縮小します。サポートされているアップスケールモデルであればどれでも使用できますが、写真や線画など、特定の種類の画像に特化したモデルもあります。"
+            ]
         },
         "paramAspect": {
-            "heading": "縦横比"
+            "heading": "縦横比",
+            "paragraphs": [
+                "生成される画像のアスペクト比。比率を変更すると、幅と高さもそれに応じて更新されます。",
+                "「最適化」は、選択したモデルの幅と高さを最適な寸法に設定します。"
+            ]
         },
         "refinerSteps": {
-            "heading": "ステップ"
+            "heading": "ステップ",
+            "paragraphs": [
+                "生成プロセスのリファイナー部分で実行されるステップの数。",
+                "生成ステップと似ています。"
+            ]
         },
         "paramVAE": {
-            "heading": "VAE"
+            "heading": "VAE",
+            "paragraphs": [
+                "AI 出力を最終画像に変換するために使用されるモデル。"
+            ]
         },
         "scale": {
-            "heading": "スケール"
+            "heading": "スケール",
+            "paragraphs": [
+                "スケールは出力画像のサイズを制御し、入力画像の解像度の倍数に基づいて決定されます。例えば、1024x1024の画像を2倍に拡大すると、2048x2048の出力が生成されます。"
+            ]
         },
         "refinerScheduler": {
-            "heading": "スケジューラー"
+            "heading": "スケジューラー",
+            "paragraphs": [
+                "生成プロセスのリファイナー部分で使用されるスケジューラ。",
+                "生成スケジューラに似ています。"
+            ]
         },
         "compositingCoherenceMode": {
-            "heading": "モード"
+            "heading": "モード",
+            "paragraphs": [
+                "新しく生成されたマスク領域と,一貫性のある画像を作成するために使用される方法."
+            ]
         },
         "paramModel": {
-            "heading": "モデル"
+            "heading": "モデル",
+            "paragraphs": [
+                "生成に使用されるモデル。異なるモデルは、異なる美的結果とコンテンツを生成するように特化するようにトレーニングされています。"
+            ]
         },
         "paramHeight": {
-            "heading": "高さ"
+            "heading": "高さ",
+            "paragraphs": [
+                "生成される画像の高さ。8の倍数にする必要があります。"
+            ]
         },
         "paramSteps": {
-            "heading": "ステップ"
+            "heading": "ステップ",
+            "paragraphs": [
+                "各生成で実行されるステップの数.",
+                "通常, ステップ数が多いほど, より高品質な画像が作成されますが生成時間も長くなります."
+            ]
         },
         "ipAdapterMethod": {
-            "heading": "モード"
+            "heading": "モード",
+            "paragraphs": [
+                "モードは参照画像が生成プロセスをどのようにガイドするかを定義します."
+            ]
         },
         "paramSeed": {
-            "heading": "シード"
+            "heading": "シード",
+            "paragraphs": [
+                "生成に使用する始動ノイズを制御します.",
+                "同じ生成設定で同一の結果を生成するには, 「ランダム」オプションを無効にします."
+            ]
         },
         "paramIterations": {
-            "heading": "生成回数"
+            "heading": "生成回数",
+            "paragraphs": [
+                "生成する画像の数。",
+                "動的プロンプトが有効になっている場合、各プロンプトはこの回数生成されます。"
+            ]
         },
         "controlNet": {
-            "heading": "ControlNet"
+            "heading": "ControlNet",
+            "paragraphs": [
+                "コントロールネットは生成プロセスへのガイダンスを提供し,選択したモデルに応じて制御された構成,構造,またはスタイルを持つ画像の作成に役立ちます."
+            ]
         },
         "paramWidth": {
-            "heading": "幅"
+            "heading": "幅",
+            "paragraphs": [
+                "生成される画像の幅。8の倍数にする必要があります。"
+            ]
         },
         "lora": {
-            "heading": "LoRA"
+            "heading": "LoRA",
+            "paragraphs": [
+                "ベースモデルと組み合わせて使用する軽量モデル."
+            ]
         },
         "loraWeight": {
-            "heading": "重み"
+            "heading": "重み",
+            "paragraphs": [
+                "LoRA の重み. 重みを大きくすると, 最終的な画像への影響が大きくなります."
+            ]
         },
         "patchmatchDownScaleSize": {
-            "heading": "Downscale"
+            "heading": "Downscale",
+            "paragraphs": [
+                "埋め込む前にどの程度のダウンスケーリングが行われるか。",
+                "ダウンスケーリングを大きくするとパフォーマンスは向上しますが、品質は低下します。"
+            ]
         },
         "controlNetWeight": {
-            "heading": "重み"
+            "heading": "重み",
+            "paragraphs": [
+                "レイヤーが生成プロセスにどの程度影響を与えるかを調整します",
+                "• 高いウエイト (.75-2): 最終結果にさらに大きな影響を及ぼします.",
+                "• 低いウエイト (0-.75): 最終結果への影響が小さくなります."
+            ]
+        },
+        "paramNegativeConditioning": {
+            "paragraphs": [
+                "生成プロセスでは、ネガティブプロンプトに含まれる概念を回避します.これを使用して、出力から特定の性質やオブジェクトを除外します.",
+                "強制された構文と埋め込みをサポート."
+            ],
+            "heading": "ネガティブプロンプト"
+        },
+        "clipSkip": {
+            "paragraphs": [
+                "スキップする CLIP モデルのレイヤー数.",
+                "特定のモデルは、CLIP Skip と併用するとより適しています."
+            ],
+            "heading": "クリップスキップ"
+        },
+        "compositingMaskBlur": {
+            "heading": "マスクぼかし",
+            "paragraphs": [
+                "マスクのぼかし半径."
+            ]
+        },
+        "paramPositiveConditioning": {
+            "paragraphs": [
+                "生成プロセスをガイドします.任意の単語やフレーズを使用できます.",
+                "強制とダイナミックプロンプトの構文と埋め込み."
+            ],
+            "heading": "ポジティブプロンプト"
+        },
+        "compositingMaskAdjustments": {
+            "heading": "マスク調整",
+            "paragraphs": [
+                "マスクを調整する."
+            ]
+        },
+        "compositingCoherenceMinDenoise": {
+            "paragraphs": [
+                "コヒーレンスモードの最小ノイズ除去強度",
+                "インペインティングまたはアウトペインティング時のコヒーレンス領域の最小ノイズ除去強度"
+            ],
+            "heading": "最小ノイズ除去"
+        },
+        "compositingCoherencePass": {
+            "paragraphs": [
+                "2 回目のノイズ除去は,インペイント/アウトペイントされた画像の合成に役立ちます."
+            ],
+            "heading": "コヒーレンスパス"
+        },
+        "controlNetBeginEnd": {
+            "paragraphs": [
+                "この設定は,ノイズ除去 (生成) プロセスのどの部分にこのレイヤーからのガイダンスが組み込まれるかを決定します.",
+                "• 開始ステップ (%): 生成プロセス中にこのレイヤーからのガイダンスの適用を開始するタイミングを指定します.",
+                "• 終了ステップ (%): このレイヤーのガイダンスの適用を停止し,モデルやその他の設定からの一般的なガイダンスを元に戻すタイミングを指定します."
+            ],
+            "heading": "開始/終了ステップの割合"
+        },
+        "compositingCoherenceEdgeSize": {
+            "heading": "エッジサイズ",
+            "paragraphs": [
+                "コヒーレンスパスのエッジサイズ."
+            ]
+        },
+        "compositingBlurMethod": {
+            "paragraphs": [
+                "マスクされた領域に適用されるぼかし方法."
+            ],
+            "heading": "ぼかし方法"
+        },
+        "inpainting": {
+            "heading": "インペインティング",
+            "paragraphs": [
+                "ノイズ除去の強度に応じて,変更する領域を制御します."
+            ]
+        },
+        "dynamicPrompts": {
+            "heading": "ダイナミックプロンプト",
+            "paragraphs": [
+                "ダイナミック プロンプトは,単一のプロンプトを複数のプロンプトに解析します.",
+                "基本的な構文は「{赤|緑|青}のボール」です.これにより,「赤いボール」「緑のボール」「青いボール」という3つのプロンプトが生成されます.",
+                "1 つのプロンプト内で構文を何度でも使用できますが, 生成されるプロンプトの数を Max Prompts 設定で制限するようにしてください."
+            ]
+        },
+        "controlNetResizeMode": {
+            "heading": "リサイズモード",
+            "paragraphs": [
+                "コントロールアダプタの入力画像サイズを出力生成サイズに適合させるメソッド."
+            ]
+        },
+        "controlNetProcessor": {
+            "heading": "プロセッサー",
+            "paragraphs": [
+                "入力画像を処理する生成プロセスをガイドするメソッド.プロセッサによって,生成される画像に異なる効果やスタイルが与えられます。"
+            ]
+        },
+        "controlNetControlMode": {
+            "heading": "コントロールモード",
+            "paragraphs": [
+                "プロンプトまたは コントロールネットのいずれかを重視します."
+            ]
+        },
+        "noiseUseCPU": {
+            "paragraphs": [
+                "CPU または GPU でノイズを生成するかどうかを制御します.",
+                "CPU ノイズを有効にすると, 特定のシードによってどのマシンでも同じ画像が生成されます.",
+                "CPU ノイズを有効にしてもパフォーマンスに影響はありません."
+            ],
+            "heading": "CPUノイズを使用する"
+        },
+        "dynamicPromptsMaxPrompts": {
+            "heading": "最大プロンプト",
+            "paragraphs": [
+                "ダイナミック プロンプトによって生成できるプロンプトの数を制限します."
+            ]
+        },
+        "dynamicPromptsSeedBehaviour": {
+            "paragraphs": [
+                "プロンプトを生成するときにシードがどのように使用されるかを制御します.",
+                "反復ごとに固有のシードを使用します. 単一のシードでプロンプトのバリエーションを試す場合に使用します.",
+                "たとえば, プロンプトが 5 つある場合, 各画像は同じシードを使用します.",
+                "「画像ごと」では, 画像ごとに固有のシード値が使用されます. これにより、より多くのバリエーションが得られます."
+            ],
+            "heading": "シード行動"
+        },
+        "imageFit": {
+            "paragraphs": [
+                "初期画像の幅と高さを出力画像に合わせてサイズ変更します. 有効にすることをお勧めします."
+            ],
+            "heading": "初期画像を出力サイズに合わせる"
+        },
+        "infillMethod": {
+            "heading": "充填方法",
+            "paragraphs": [
+                "アウトペインティングまたはインペインティングのプロセス中に埋め込む方法."
+            ]
+        },
+        "paramGuidance": {
+            "paragraphs": [
+                "プロンプトが生成プロセスにどの程度影響するかを制御します。",
+                "ガイダンス値が高すぎると過飽和状態になる可能性があり、ガイダンス値が高すぎるか低すぎると生成結果に歪みが生じる可能性があります。ガイダンスはFLUX DEVモデルにのみ適用されます。"
+            ],
+            "heading": "ガイダンス"
+        },
+        "paramDenoisingStrength": {
+            "paragraphs": [
+                "生成されたイメージがラスター レイヤーとどの程度異なるかを制御します。",
+                "強度が低いほど、結合された表示ラスターレイヤーに近くなります。強度が高いほど、グローバルプロンプトに大きく依存します。",
+                "表示されるコンテンツを持つラスター レイヤーがない場合、この設定は無視されます。"
+            ],
+            "heading": "ディノイジングストレングス"
+        },
+        "refinerStart": {
+            "heading": "リファイナースタート",
+            "paragraphs": [
+                "生成プロセスのどの時点でリファイナーが使用され始めるか。",
+                "0 はリファイナーが生成プロセス全体で使用されることを意味し、0.8 は、リファイナーが生成プロセスの最後の 20% で使用されることを意味します。"
+            ]
+        },
+        "optimizedDenoising": {
+            "heading": "イメージtoイメージの最適化",
+            "paragraphs": [
+                "「イメージtoイメージを最適化」を有効にすると、Fluxモデルを用いた画像間変換およびインペインティング変換において、より段階的なノイズ除去強度スケールが適用されます。この設定により、画像に適用される変化量を制御する能力が向上しますが、標準のノイズ除去強度スケールを使用したい場合はオフにすることができます。この設定は現在調整中で、ベータ版です。"
+            ]
+        },
+        "refinerPositiveAestheticScore": {
+            "heading": "ポジティブ美的スコア",
+            "paragraphs": [
+                "トレーニング データに基づいて、美的スコアの高い画像に類似するように生成を重み付けします。"
+            ]
+        },
+        "paramCFGScale": {
+            "paragraphs": [
+                "プロンプトが生成プロセスにどの程度影響するかを制御します。",
+                "CFG スケールの値が高すぎると、飽和しすぎて生成結果が歪む可能性があります。 "
+            ],
+            "heading": "CFGスケール"
+        },
+        "paramVAEPrecision": {
+            "paragraphs": [
+                "VAE エンコードおよびデコード時に使用される精度。",
+                "Fp16/Half 精度は、画像のわずかな変化を犠牲にして、より効率的です。"
+            ],
+            "heading": "VAE精度"
+        },
+        "refinerModel": {
+            "heading": "リファイナーモデル",
+            "paragraphs": [
+                "生成プロセスの精製部分で使用されるモデル。",
+                "世代モデルに似ています。"
+            ]
+        },
+        "refinerCfgScale": {
+            "heading": "CFGスケール",
+            "paragraphs": [
+                "プロンプトが生成プロセスに与える影響を制御する。",
+                "生成CFG スケールに似ています。"
+            ]
+        },
+        "seamlessTilingYAxis": {
+            "heading": "シームレスタイリングY軸",
+            "paragraphs": [
+                "画像を垂直軸に沿ってシームレスに並べます。"
+            ]
+        },
+        "scaleBeforeProcessing": {
+            "heading": "プロセス前のスケール値",
+            "paragraphs": [
+                "「自動」は、画像生成プロセスの前に、選択した領域をモデルに最適なサイズに拡大縮小します。",
+                "「手動」では、画像生成プロセスの前に、選択した領域を拡大縮小する幅と高さを選択できます。"
+            ]
+        },
+        "creativity": {
+            "heading": "クリエイティビティ",
+            "paragraphs": [
+                "クリエイティビティは、ディテールを追加する際のモデルに与えられる自由度を制御します。クリエイティビティが低いと元のイメージに近いままになり、クリエイティビティが高いとより多くの変化を加えることができます。プロンプトを使用する場合、クリエイティビティが高いとプロンプトの影響が増します。"
+            ]
+        },
+        "paramHrf": {
+            "heading": "高解像度修正を有効にする",
+            "paragraphs": [
+                "モデルに最適な解像度よりも高い解像度で、高品質な画像を生成します。通常、生成された画像内の重複を防ぐために使用されます。"
+            ]
+        },
+        "seamlessTilingXAxis": {
+            "heading": "シームレスタイリングX軸",
+            "paragraphs": [
+                "画像を水平軸に沿ってシームレスに並べます。"
+            ]
+        },
+        "paramCFGRescaleMultiplier": {
+            "paragraphs": [
+                "ゼロ端末 SNR (ztsnr) を使用してトレーニングされたモデルに使用される、CFG ガイダンスのリスケールマルチプライヤー。",
+                "これらのモデルの場合、推奨値は 0.7 です。"
+            ],
+            "heading": "CFG リスケールマルチプライヤー"
+        },
+        "structure": {
+            "heading": "ストラクチャ",
+            "paragraphs": [
+                "ストラクチャは、出力画像が元のレイアウトにどれだけ忠実に従うかを制御します。低いストラクチャでは大幅な変更が可能ですが、高いストラクチャでは元の構成とレイアウトが厳密に維持されます。"
+            ]
+        },
+        "refinerNegativeAestheticScore": {
+            "paragraphs": [
+                "トレーニング データに基づいて、美観スコアが低い画像に類似するように生成に重み付けします。"
+            ],
+            "heading": "ネガティブ美的スコア"
+        },
+        "fluxDevLicense": {
+            "heading": "非商用ライセンス",
+            "paragraphs": [
+                "FLUX.1 [dev]モデルは、FLUX [dev]非商用ライセンスに基づいてライセンスされています。Invokeでこのモデルタイプを商用目的で使用する場合は、当社のウェブサイトをご覧ください。"
+            ]
         }
     },
     "accordions": {
@@ -1340,7 +1823,18 @@
         "scheduler": "スケジューラー",
         "loading": "ロード中...",
         "steps": "ステップ",
-        "refiner": "Refiner"
+        "refiner": "Refiner",
+        "negStylePrompt": "ネガティブスタイルプロンプト",
+        "noModelsAvailable": "利用できるモデルがありません",
+        "posStylePrompt": "ポジティブスタイルプロンプト",
+        "cfgScale": "CFGスケール",
+        "concatPromptStyle": "リンキングプロンプトとスタイル",
+        "freePromptStyle": "手動スタイルプロンプト",
+        "posAestheticScore": "ポジティブ美的スコア",
+        "refinerSteps": "リファイナーステップ",
+        "refinerStart": "リファイナースタート",
+        "refinermodel": "リファイナーモデル",
+        "negAestheticScore": "ネガティブ美的スコア"
     },
     "modelCache": {
         "clear": "モデルキャッシュを消去",
@@ -1351,7 +1845,106 @@
         "workflows": "ワークフロー",
         "ascending": "昇順",
         "name": "名前",
-        "descending": "降順"
+        "descending": "降順",
+        "searchPlaceholder": "名前、説明、タグで検索",
+        "projectWorkflows": "プロジェクトワークフロー",
+        "searchWorkflows": "ワークフローを検索",
+        "updated": "アップデート",
+        "published": "公表",
+        "builder": {
+            "label": "ラベル",
+            "containerPlaceholder": "空のコンテナ",
+            "showDescription": "説明を表示",
+            "emptyRootPlaceholderEditMode": "開始するには、フォーム要素またはノード フィールドをここにドラッグします。",
+            "divider": "仕切り",
+            "deleteAllElements": "すべてのフォーム要素を削除",
+            "heading": "見出し",
+            "nodeField": "ノードフィールド",
+            "zoomToNode": "ノードにズーム",
+            "dropdown": "ドロップダウン",
+            "resetOptions": "オプションをリセット",
+            "both": "両方",
+            "builder": "フォームビルダー",
+            "text": "テキスト",
+            "row": "行",
+            "multiLine": "マルチライン",
+            "resetAllNodeFields": "すべてのノードフィールドをリセット",
+            "slider": "スライダー",
+            "layout": "レイアウト",
+            "addToForm": "フォームに追加",
+            "headingPlaceholder": "空の見出し",
+            "nodeFieldTooltip": "ノード フィールドを追加するには、ワークフロー エディターのフィールドにある小さなプラス記号ボタンをクリックするか、フィールド名をフォームにドラッグします。",
+            "workflowBuilderAlphaWarning": "ワークフロービルダーは現在アルファ版です。安定版リリースまでに互換性に影響する変更が発生する可能性があります。",
+            "component": "コンポーネント",
+            "textPlaceholder": "空のテキスト",
+            "emptyRootPlaceholderViewMode": "このワークフローのフォームの作成を開始するには、[編集] をクリックします。",
+            "addOption": "オプションを追加",
+            "singleLine": "単線",
+            "numberInput": "数値入力",
+            "column": "列",
+            "container": "コンテナ",
+            "containerRowLayout": "コンテナ（行レイアウト）",
+            "containerColumnLayout": "コンテナ（列レイアウト）",
+            "maximum": "最大",
+            "published": "公開済み",
+            "publishedWorkflowOutputs": "アウトプット",
+            "minimum": "最小",
+            "publish": "公開",
+            "unpublish": "非公開",
+            "publishedWorkflowInputs": "インプット"
+        },
+        "chooseWorkflowFromLibrary": "ライブラリからワークフローを選択",
+        "unnamedWorkflow": "名前のないワークフロー",
+        "download": "ダウンロード",
+        "savingWorkflow": "ワークフローを保存しています...",
+        "problemSavingWorkflow": "ワークフローの保存に関する問題",
+        "convertGraph": "グラフを変換",
+        "downloadWorkflow": "ファイルに保存",
+        "saveWorkflow": "ワークフローを保存",
+        "userWorkflows": "ユーザーワークフロー",
+        "yourWorkflows": "あなたのワークフロー",
+        "edit": "編集",
+        "workflowLibrary": "ワークフローライブラリ",
+        "workflowSaved": "ワークフローが保存されました",
+        "clearWorkflowSearchFilter": "ワークフロー検索フィルタをクリア",
+        "workflowCleared": "ワークフローが作成されました",
+        "autoLayout": "オートレイアウト",
+        "view": "ビュー",
+        "saveChanges": "変更を保存",
+        "noDescription": "説明なし",
+        "recommended": "あなたへのおすすめ",
+        "noRecentWorkflows": "最近のワークフローがありません",
+        "problemLoading": "ワークフローのローディングに関する問題",
+        "newWorkflowCreated": "新しいワークフローが作成されました",
+        "noWorkflows": "ワークフローがありません",
+        "copyShareLink": "共有リンクをコピー",
+        "copyShareLinkForWorkflow": "ワークフローの共有リンクをコピー",
+        "workflowThumbnail": "ワークフローサムネイル",
+        "loadWorkflow": "$t(common.load) ワークフロー",
+        "shared": "共有",
+        "openWorkflow": "ワークフローを開く",
+        "emptyStringPlaceholder": "<空の文字列>",
+        "browseWorkflows": "ワークフローを閲覧する",
+        "saveWorkflowAs": "ワークフローとして保存",
+        "private": "プライベート",
+        "deselectAll": "すべて選択解除",
+        "delete": "削除",
+        "openLibrary": "ライブラリを開く",
+        "loadMore": "もっと読み込む",
+        "saveWorkflowToProject": "ワークフローをプロジェクトに保存",
+        "created": "作成されました",
+        "workflowEditorMenu": "ワークフローエディターメニュー",
+        "defaultWorkflows": "デフォルトワークフロー",
+        "allLoaded": "すべてのワークフローが読み込まれました",
+        "filterByTags": "タグでフィルター",
+        "recentlyOpened": "最近開いた",
+        "opened": "オープン",
+        "deleteWorkflow": "ワークフローを削除",
+        "deleteWorkflow2": "このワークフローを削除してもよろしいですか? 元に戻すことはできません。",
+        "loadFromGraph": "グラフからワークフローをロード",
+        "workflowName": "ワークフロー名",
+        "loading": "ワークフローをロードしています",
+        "uploadWorkflow": "ファイルからロードする"
     },
     "system": {
         "logNamespaces": {
@@ -1370,5 +1963,20 @@
             "fatal": "Fatal",
             "warn": "Warn"
         }
+    },
+    "dynamicPrompts": {
+        "promptsPreview": "プロンプトプレビュー",
+        "seedBehaviour": {
+            "label": "シードの挙動",
+            "perPromptLabel": "画像ごとのシード",
+            "perIterationLabel": "いてレーションごとのシード",
+            "perPromptDesc": "それぞれの画像に足して別のシードを使う",
+            "perIterationDesc": "それぞれのいてレーションに別のシードを使う"
+        },
+        "showDynamicPrompts": "ダイナミックプロンプトを表示する",
+        "promptsToGenerate": "生成するプロンプト",
+        "dynamicPrompts": "ダイナミックプロンプト",
+        "loading": "ダイナミックプロンプトを生成...",
+        "maxPrompts": "最大プロンプト"
     }
 }
